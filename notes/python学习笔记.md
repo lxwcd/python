@@ -317,6 +317,10 @@ output:
 ## 装饰器
 > [第16课：函数的高级应用](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第16课：函数的高级应用.md)
 
+## 内置函数
+
+### Sequence Types — list, tuple, range
+> [Sequence Types — list, tuple, range](https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range)
 
 
 # 模块
@@ -397,3 +401,24 @@ if __name__ == "__main__":
 
 
 Packages are a way of structuring Python’s module namespace by using “dotted module names”. 
+
+# 类
+> [9. Classes](https://docs.python.org/3/tutorial/classes.html)
+> [第17课：面向对象编程入门](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第17课：面向对象编程入门.md)
+> [面向对象编程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528)
+
+
+## @property 属性装饰器
+> [Python Property Decorator](https://www.pythontutorial.net/python-oop/python-property-decorator/)
+> [第18课：面向对象编程进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第18课：面向对象编程进阶.md)
+> [使用@property](https://www.liaoxuefeng.com/wiki/1016959663602400/1017502538658208)
+
+
+
+
+## 静态类
+> [Python Static Method Explained With Examples](https://pynative.com/python-static-method/)
+> [第18课：面向对象编程进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第18课：面向对象编程进阶.md)
+
+
+- 静态方法是一种不依赖于类实例的方法，因此它可以在不创建类实例的情况下直接通过类来调用
