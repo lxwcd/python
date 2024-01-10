@@ -4,6 +4,7 @@ Python 学习
 > [官方文档](https://docs.python.org/3/tutorial/appetite.html)
 > [Python-100-Days](https://github.com/jackfrued/Python-100-Days/tree/master)
 > [廖雪峰Python教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1016959856222624)
+> [Learn Python Programming](https://www.tutorialsteacher.com/python)
 > Python 代码可视化生成器：[Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
 
 # 安装
@@ -45,7 +46,7 @@ pip config set global.index-url https://pypi.doubanio.com/simple
 |设置|Ctrl+Alt+S||
 |执行选择的行|Shift+E|自定义|
 |显示运行窗口|Alt+4||
-|运行选择的行|Shift+E|自定义|
+|运行选择的行|Alt+E|自定义|
 |代码格式化|Ctrl+Alt+L||
 |文件格式化|Ctrl+Alt+Shift+L||
 
@@ -120,8 +121,27 @@ Usage: thingy [OPTIONS]
 ## f-string
 > [f-string](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
 
+# 列表生成式
+> [列表生成式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776)
+
+```python
+# 生成一个由两个元素的元组组成的列表
+pairs = [(x, y) for x in [1, 2, 3] for y in [4, 5, 6]]
+print(pairs)  # 输出: [(1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6)]
+
+# 生成一个由偶数构成的列表
+numbers = [x for x in range(10) if x % 2 == 0]
+print(numbers)  # 输出: [0, 2, 4, 6, 8]
+
+# 生成一个由两个字符串的组合构成的列表
+words = ['Hello', 'World', 'Python']
+combined = [x + ' ' + y for x in words for y in words if x != y]
+# 输出: ['Hello World', 'Hello Python', 'World Hello', 'World Python', 'Python Hello', 'Python World']
+print(combined)  
+```
+
 # 生成器
-> [生产器](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
+> [生成器](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
 
 # 循环和分支结构
 > [第05课：分支结构](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第05课：分支结构.md)
@@ -402,10 +422,23 @@ if __name__ == "__main__":
 
 Packages are a way of structuring Python’s module namespace by using “dotted module names”. 
 
+# 错误和异常
+> [8. Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
+> [错误处理](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598873256736)
+
+## try
+
+## raise
+
 # 类
 > [9. Classes](https://docs.python.org/3/tutorial/classes.html)
 > [第17课：面向对象编程入门](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第17课：面向对象编程入门.md)
 > [面向对象编程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528)
+
+## 访问限制
+> [访问限制](https://www.liaoxuefeng.com/wiki/1016959663602400/1017496679217440)
+> [Python - Public, Protected, Private Members](https://www.tutorialsteacher.com/python/public-private-protected-modifiers)
+
 
 
 ## @property 属性装饰器
@@ -422,3 +455,66 @@ Packages are a way of structuring Python’s module namespace by using “dotted
 
 
 - 静态方法是一种不依赖于类实例的方法，因此它可以在不创建类实例的情况下直接通过类来调用
+
+## 类方法 @classmethod 
+> [Meaning of @classmethod and @staticmethod for beginner [duplicate]](https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner)
+> [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=92&vd_source=a99dfd145a3e6aa8000930c149d4bf58)
+
+
+
+## 枚举类
+> [Build Enumerations of Constants With Python's Enum](https://realpython.com/python-enum/)
+
+## 元类 metaclass
+> [使用元类](https://www.liaoxuefeng.com/wiki/1016959663602400/1017592449371072)
+
+
+## 特殊方法
+### __new__ 和 __init__
+
+### __str__ 和 __repr__
+> [How To Use the __str__() and __repr__() Methods in Python](https://www.digitalocean.com/community/tutorials/python-str-repr-functions)
+
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+    def __repr__(self):
+        return f"Point(x={self.x}, y={self.y})"
+
+point = Point(3, 4)
+
+print(point)  # Output: Point(3, 4)
+print(str(point))  # Output: Point(3, 4)
+
+print(repr(point))  # Output: Point(x=3, y=4)
+print(point.__repr__())  # Output: Point(x=3, y=4)
+```
+
+## 运算符重载
+> [operator — Standard operators as functions](https://docs.python.org/3/library/operator.html)
+> [How to implement __lt__ in Python?](https://pencilprogrammer.com/__lt__-python/)
+
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __lt__(self, other):
+        return self.x < other.x and self.y < other.y
+
+# 创建两个 Point 对象
+point1 = Point(1, 2)
+point2 = Point(3, 4)
+
+# 使用 < 运算符比较两个对象
+print(point1 < point2)  # 输出: True
+```
