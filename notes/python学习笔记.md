@@ -6,6 +6,8 @@ Python 学习
 > [廖雪峰Python教程](https://www.liaoxuefeng.com/wiki/1016959663602400/1016959856222624)
 > [Learn Python Programming](https://www.tutorialsteacher.com/python)
 > Python 代码可视化生成器：[Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
+> 查询特殊符号的unicode代码[unicode](https://home.unicode.org/)
+> 边框符号的unicode码[Box Drawing](https://unicode.org/charts/nameslist/n_2500.html)
 
 # 安装
 > 文档：[第01课：初识Python](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第01课：初识Python.md)
@@ -70,7 +72,7 @@ pip install ipython
 > [2.1.5. Explicit line joining](https://docs.python.org/3/reference/lexical_analysis.html#explicit-line-joining)
 
 
-- 多行注释
+### 多行注释
 ```python
 # comment
 
@@ -80,7 +82,7 @@ comment line
 """
 ```
 
-- 非字符串和注释多物理行合并为逻辑行
+### 非字符串和注释多物理行合并为逻辑行
 ```python
 # 以反斜杠（/）结尾
 
@@ -98,7 +100,7 @@ month_names = ['Januari', 'Februari', 'Maart',      # These are the
                'Oktober', 'November', 'December']   # of the year
 ```
 
-- 字符串多行
+### 多行字符串
 One way is using triple-quotes: """...""" or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a \ at the end of the line. 
 
 ```python
@@ -108,6 +110,10 @@ Usage: thingy [OPTIONS]
      -H hostname               Hostname to connect to
 """)
 ```
+
+每行末尾自动加上换行符，第一行加上 `\`可防止夹换行符
+
+如果书写时每行左侧有缩进，可以用  textwrap.dedent() 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)
 
 # 数据类型和变量
 > [3. An Informal Introduction to Python](https://docs.python.org/3/tutorial/introduction.html)
@@ -120,6 +126,61 @@ Usage: thingy [OPTIONS]
 
 ## f-string
 > [f-string](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
+
+## String format() 字符串格式化
+> [7.1.2. The String format() Method](https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method)
+> [Python format 格式化函数](https://www.runoob.com/python/att-string-format.html)
+
+```python
+print('We are the {} who say "{}!"'.format('knights', 'Ni'))
+# We are the knights who say "Ni!"
+
+print('{0} and {1}'.format('spam', 'eggs'))
+# spam and eggs
+
+print('{1} and {0}'.format('spam', 'eggs'))
+# eggs and spam
+
+print('This {food} is {adjective}.'.format(
+      food='spam', adjective='absolutely horrible'))
+# This spam is absolutely horrible.
+```
+```python
+def __str__(self):
+    """
+    :lines: 第一个参数为数字，占两位，左对齐，除了 10 其他只占用一个字符宽度
+    :lines: 第二个参数为数字，占一位，花色图案
+    :lines: 第三个参数为数字，占两位，右对齐，除了 10 其他只占用一个字符宽度
+    """
+    lines = """\
+    ┌───────┐
+    |{}     |
+    |       |
+    |   {}  |
+    |       |
+    |     {}|
+    └───────┘
+    """.format('{rank: <2}', '{suit_value: <2}', '{rank: >2}')
+
+    # 另一种方式，书写不美观，且麻烦
+    # lines = [[] for i in range(7)]
+    # space = '' if self.rank == '10' else ' '
+    # lines[0].append('┌───────┐')
+    # lines[1].append('|{}{}     |'.format(self.rank, space))
+    # lines[2].append('|       |')
+    # lines[3].append('|   {}   |'.format(self.suit_value))
+    # lines[4].append('|       |')
+    # lines[5].append('|     {}{}|'.format(space, self.rank))
+    # lines[6].append('└───────┘')
+    # result = [''.join(line) for line in lines]
+    # return '\n'.join(result)
+    
+    return textwrap.dedent(lines.format(rank=self.rank, suit_value=self.suit_value))
+```
+
+
+## String join() 字符串连接
+> [Python String join() Method](https://www.w3schools.com/python/ref_string_join.asp)
 
 # 列表生成式
 > [列表生成式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776)
@@ -138,6 +199,15 @@ words = ['Hello', 'World', 'Python']
 combined = [x + ' ' + y for x in words for y in words if x != y]
 # 输出: ['Hello World', 'Hello Python', 'World Hello', 'World Python', 'Python Hello', 'Python World']
 print(combined)  
+```
+
+```python
+result = []
+for index, line in enumerate(lines):
+    result.append(''.join(lines[index]))
+
+# 上面三行代码用下面一行代替
+result = [''.join(line) for line in lines]
 ```
 
 # 生成器
@@ -285,6 +355,16 @@ def cheeseshop(kind, *arguments, **keywords):
 
 通常 *arguments 放在 **keywards 前面
 
+## 类型提示 type hint
+> [typing — Support for type hints](https://docs.python.org/3/library/typing.html)
+> [How to Use Type Hints for Multiple Return Types in Python](https://realpython.com/python-type-hints-multiple-types/)
+> [全面理解Python中的类型提示（Type Hints）](https://sikasjc.github.io/2018/07/14/type-hint-in-python/)
+
+```python
+def greeting(name: str) -> str:
+    return 'Hello ' + name
+```
+
 ## Lambda 表达式
 > [4.8.6. Lambda Expressions](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)
 > [第15课：函数使用进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第15课：函数使用进阶.md)
@@ -341,7 +421,23 @@ output:
 
 ### Sequence Types — list, tuple, range
 > [Sequence Types — list, tuple, range](https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range)
+> [Python3 enumerate() 函数](https://www.runoob.com/python3/python3-func-enumerate.html)
 
+### enumerate
+> [enumerate](https://docs.python.org/3/library/functions.html#enumerate)
+
+```python
+seq = ['one', 'two', 'three']
+
+for i, element in enumerate(seq):
+    print(i, element)
+```
+输出：
+```python
+0 one
+1 two
+2 three
+```
 
 # 模块
 > [第13课：函数和模块](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第13课：函数和模块.md)
@@ -422,6 +518,29 @@ if __name__ == "__main__":
 
 Packages are a way of structuring Python’s module namespace by using “dotted module names”. 
 
+## textwrap 文本处理模块
+> [textwrap](https://docs.python.org/3.12/library/textwrap.html)
+
+### textwrap.dedent() 处理每行缩进
+如果书写时每行左侧有缩进，可以用  textwrap.dedent() 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)
+
+
+```python
+>>> import textwrap
+
+>>> str = """\
+...     hello
+...     world
+...     """
+>>> print(str)
+    hello
+    world
+
+>>> print(textwrap.dedent(str))
+hello
+world
+```
+
 # 错误和异常
 > [8. Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
 > [错误处理](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598873256736)
@@ -474,6 +593,7 @@ Packages are a way of structuring Python’s module namespace by using “dotted
 
 ### __str__ 和 __repr__
 > [How To Use the __str__() and __repr__() Methods in Python](https://www.digitalocean.com/community/tutorials/python-str-repr-functions)
+> [Easy Syntax in Python : __STR__ Vs __REPR__ Functions](https://www.youtube.com/watch?v=uKmfhJA76Y4&ab_channel=BekBrace)
 
 
 ```python
