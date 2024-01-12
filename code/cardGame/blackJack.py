@@ -194,7 +194,7 @@ class Hand:
         # print cards horizontally, use two tabs as delimiter
         # items is tuple
         # str(item) for item in items 为生成器表达式
-        deli_card = '\t\t' if num_card > 1 else ''
+        deli_card = '\t' if num_card > 1 else ''
         result_list = [deli_card.join(str(item) for item in items) for items in list_cards]
 
         print(f'{role} CARDS: ')
@@ -207,90 +207,91 @@ class Hand:
 
 
 class BlackJack:
+    def __init__(self):
+        self.deck = Deck()
+        self.deck.shuffle()
+
+        self.player_hand = Hand()
+        self.dealer_hand = Hand(is_dealer=True)
+
     def play(self):
         clear()
-        deck = Deck()
-        deck.shuffle()
-
-        player_hand = Hand()
-        dealer_hand = Hand(is_dealer=True)
-
         # 初始玩家和庄家各发两张牌
         for _ in range(2):
-            player_hand.add_card(deck.deal())
-            player_hand.display_cards()
+            self.player_hand.add_card(self.deck.deal())
+            self.player_hand.display_cards()
 
             input()
 
-            dealer_hand.add_card(deck.deal())
-            dealer_hand.display_cards()
+            self.dealer_hand.add_card(self.deck.deal())
+            self.dealer_hand.display_cards()
 
             input()
 
         # 结束游戏
-        if self.check_winner(player_hand, dealer_hand):
+        if self.check_winner():
             return
 
         # 继续游戏，玩家选择是否要牌
         choice = ""
-        while player_hand.cal_score() < 21 and choice not in ["s", "stand"]:
+        while self.player_hand.cal_score() < 21 and choice not in ["s", "stand"]:
             choice = input("Please choose 'Hit' or 'Stand' (or H/S): ").lower()
             while choice not in ["h", "s", "hit", "stand"]:
                 choice = input("Please choose 'Hit' or 'Stand' (or H/S): ").lower()
                 print()
 
             if choice in ["hit", "h"]:
-                clear()
-                player_hand.add_card(deck.deal())
-                player_hand.display_cards()
-                print()
-                dealer_hand.display_cards()
+                self.add_and_show_card(self.player_hand)
 
-        if self.check_winner(player_hand, dealer_hand):
+        if self.check_winner():
             return
 
         # 玩家停牌
-        while dealer_hand.cal_score() < 17:
-            dealer_hand.add_card(deck.deal())
-            clear()
-            player_hand.display_cards()
-            print()
-            dealer_hand.display_cards(game_over=True)
+        while self.dealer_hand.cal_score() < 17:
+            self.add_and_show_card(self.dealer_hand, True)
 
-        self.check_winner(player_hand, dealer_hand, True)
+        self.check_winner(True)
 
-    def check_winner(self, player_hand: Hand, dealer_hand: Hand, game_over: bool = False):
-        player_hand.cal_score()
-        dealer_hand.cal_score()
+    def add_and_show_card(self, hand: Hand, game_over: bool = False):
+        clear()
+        hand.add_card(self.deck.deal())
+        self.player_hand.display_cards()
+        print("\n")
+        self.dealer_hand.display_cards(game_over)
+
+    def check_winner(self, game_over: bool = False):
+        self.player_hand.cal_score()
+        self.dealer_hand.cal_score()
 
         is_over = True
         result = ""
 
         if not game_over:
-            if player_hand.score > 21:
+            if self.player_hand.score > 21:
                 result = "You busted. Dealer wins! 😭"
-            elif dealer_hand.score > 21:
+            elif self.dealer_hand.score > 21:
                 result = "Dealer busted. You win! 😄"
-            elif player_hand.is_blackjack() and dealer_hand.is_blackjack():
+            elif self.player_hand.is_blackjack() and self.dealer_hand.is_blackjack():
                 result = "Both players have blackjack! Tie! 😑"
-            elif player_hand.is_blackjack():
+            elif self.player_hand.is_blackjack():
                 result = "You have blackjack. You win! 😄"
-            elif dealer_hand.is_blackjack():
+            elif self.dealer_hand.is_blackjack():
                 result = "Dealer has blackjack. Dealer wins! 😭"
             else:
                 is_over = False
         else:
-            if player_hand.score > dealer_hand.score:
+            if self.player_hand.score > self.dealer_hand.score:
                 result = "You win! 😄"
-            elif player_hand.score == dealer_hand.score:
+            elif self.player_hand.score == self.dealer_hand.score:
                 result = "Tie! 😑"
             else:
                 result = "Dealer wins. 😭"
 
         if is_over:
             clear()
-            player_hand.display_cards()
-            dealer_hand.display_cards(game_over=True)
+            self.player_hand.display_cards()
+            print("\n")
+            self.dealer_hand.display_cards(game_over=True)
             print(f"\n{result}")
 
         return is_over
