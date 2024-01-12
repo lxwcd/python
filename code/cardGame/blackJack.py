@@ -3,15 +3,21 @@
 # Time: 2024-01-11
 # File: blackJack.py
 # URL:
-#   主要程序代码：https://www.askpython.com/python/examples/blackjack-game-using-python
+#   代码参考：https://www.askpython.com/python/examples/blackjack-game-using-python
+#   代码参考：https://www.youtube.com/watch?v=aryte85bt_M&ab_channel=Beau
 #   牌显示代码：https://copyprogramming.com/howto/ascii-fication-of-playing-cards
 #   绘制牌边框unicode码：https://unicode.org/charts/nameslist/n_2500.html
 # Description: 21 点扑克牌游戏，学习使用
 
 import random
 import os
-import time
 import textwrap
+
+
+# clear the terminal
+def clear():
+    clear_command = "cls" if os.name == "nt" else "clear" if os.name == "posix" else ""
+    os.system(clear_command)
 
 
 class Card:
@@ -37,7 +43,7 @@ class Card:
         'K': 10
     }
 
-    def __init__(self, suit, rank):
+    def __init__(self, suit: str, rank: str):
         """
         :param suit: The face of the card, e.g. Spades
         :param rank: The value of the card, e.g. A
@@ -79,6 +85,22 @@ class Card:
 
         return textwrap.dedent(lines.format(rank=self.rank, suit_value=self.suit_value))
 
+    # def show(self):
+    #     lines = []
+    #     space = '' if self.rank == '10' else ' '
+    #     lines.append('┌───────┐')
+    #     lines.append('|{}{}     |'.format(self.rank, space))
+    #     lines.append('|       |')
+    #     lines.append('|   {}   |'.format(self.suit_value))
+    #     lines.append('|       |')
+    #     lines.append('|     {}{}|'.format(space, self.rank))
+    #     lines.append('└───────┘')
+    #
+    #     return '\n'.join(lines)
+
+    def list_of_card(self):
+        return self.__str__().splitlines()
+
     def ascii_of_hidden_card(self):
         lines = """\
         ┌───────┐
@@ -89,15 +111,191 @@ class Card:
         |░░░░░░░|
         └───────┘
         """
+
         return textwrap.dedent(lines)
+
+    def list_of_hidden_card(self):
+        return self.ascii_of_hidden_card().splitlines()
 
     def text_of_card(self):
         return f'{self.suits_values[self.suit]}{self.rank}: {self.card_value}'
 
 
-card1 = Card('Spades', 'K')
-card2 = Card('Spades', 'J')
-card3 = Card('Hearts', '10')
-print(card2)
-print(card3.ascii_of_hidden_card())
-print(card1.text_of_card())
+# card1 = Card('Spades', 'K')
+# card2 = Card('Spades', 'J')
+# card3 = Card('Hearts', '10')
+# print(card1.show())
+# print(card2.list_of_card())
+# print(card3.ascii_of_hidden_card())
+# print(card1.text_of_card())
+
+class Deck:
+    def __init__(self):
+        self.cards = [Card(suit, rank) for suit in Card.suits_values.keys()
+                      for rank in Card.cards_values.keys()]
+
+    # 洗牌
+    def shuffle(self):
+        if len(self.cards) > 1:
+            random.shuffle(self.cards)
+
+    # 发牌
+    def deal(self):
+        if self.cards:
+            return self.cards.pop()
+
+
+# 玩家或庄家手中的牌
+class Hand:
+    def __init__(self, is_dealer=False):
+        self.cards = []
+        self.list_cards = []  # 每个元素 card 为 list，方便后面绘制牌
+        self.score = 0
+        self.is_dealer = is_dealer
+
+    # 添加牌
+    def add_card(self, card: Card):
+        self.cards.append(card)
+        self.list_cards.append(card.list_of_card())
+
+    # 计算牌的大小
+    def cal_score(self):
+        self.score = 0
+        num_aces = 0
+        for card in self.cards:
+            num_aces += 1 if card.rank == 'A' else 0
+            self.score += int(card.card_value)
+
+        # 根据牌的大小设置 A 的值，超过 21 则做 1 计算
+        while self.score > 21 and num_aces > 0:
+            self.score -= 10
+            num_aces -= 1
+
+        return self.score
+
+    def is_blackjack(self):
+        return self.cal_score() == 21
+
+    # 横向展示多张牌
+    def display_cards(self, game_over=False):
+        role = 'DEALER' if self.is_dealer else 'PLAYER'
+        hide_card = not game_over and self.is_dealer
+        list_cards = []
+
+        # 庄家隐藏第一张牌
+        if self.cards:
+            list_cards = self.cards[0].list_of_hidden_card() if hide_card else self.list_cards[0]
+
+        num_card = len(self.list_cards)
+        # 每个列表（一张牌）的像同行组合为一个新列表的一行，多张牌横向展示
+        if num_card > 1:
+            list_cards = zip(list_cards, *self.list_cards[1:])
+
+        # print cards horizontally, use two tabs as delimiter
+        # items is tuple
+        # str(item) for item in items 为生成器表达式
+        deli_card = '\t\t' if num_card > 1 else ''
+        result_list = [deli_card.join(str(item) for item in items) for items in list_cards]
+
+        print(f'{role} CARDS: ')
+        print('\n'.join(result_list))
+
+        if not hide_card:
+            print(f'{role} SCORE = ', self.cal_score())
+
+        print("=" * 80, "\n") if self.is_dealer else None
+
+
+class BlackJack:
+    def play(self):
+        clear()
+        deck = Deck()
+        deck.shuffle()
+
+        player_hand = Hand()
+        dealer_hand = Hand(is_dealer=True)
+
+        # 初始玩家和庄家各发两张牌
+        for _ in range(2):
+            player_hand.add_card(deck.deal())
+            player_hand.display_cards()
+
+            input()
+
+            dealer_hand.add_card(deck.deal())
+            dealer_hand.display_cards()
+
+            input()
+
+        # 结束游戏
+        if self.check_winner(player_hand, dealer_hand):
+            return
+
+        # 继续游戏，玩家选择是否要牌
+        choice = ""
+        while player_hand.cal_score() < 21 and choice not in ["s", "stand"]:
+            choice = input("Please choose 'Hit' or 'Stand' (or H/S): ").lower()
+            while choice not in ["h", "s", "hit", "stand"]:
+                choice = input("Please choose 'Hit' or 'Stand' (or H/S): ").lower()
+                print()
+
+            if choice in ["hit", "h"]:
+                clear()
+                player_hand.add_card(deck.deal())
+                player_hand.display_cards()
+                print()
+                dealer_hand.display_cards()
+
+        if self.check_winner(player_hand, dealer_hand):
+            return
+
+        # 玩家停牌
+        while dealer_hand.cal_score() < 17:
+            dealer_hand.add_card(deck.deal())
+            clear()
+            player_hand.display_cards()
+            print()
+            dealer_hand.display_cards(game_over=True)
+
+        self.check_winner(player_hand, dealer_hand, True)
+
+    def check_winner(self, player_hand: Hand, dealer_hand: Hand, game_over: bool = False):
+        player_hand.cal_score()
+        dealer_hand.cal_score()
+
+        is_over = True
+        result = ""
+
+        if not game_over:
+            if player_hand.score > 21:
+                result = "You busted. Dealer wins! 😭"
+            elif dealer_hand.score > 21:
+                result = "Dealer busted. You win! 😄"
+            elif player_hand.is_blackjack() and dealer_hand.is_blackjack():
+                result = "Both players have blackjack! Tie! 😑"
+            elif player_hand.is_blackjack():
+                result = "You have blackjack. You win! 😄"
+            elif dealer_hand.is_blackjack():
+                result = "Dealer has blackjack. Dealer wins! 😭"
+            else:
+                is_over = False
+        else:
+            if player_hand.score > dealer_hand.score:
+                result = "You win! 😄"
+            elif player_hand.score == dealer_hand.score:
+                result = "Tie! 😑"
+            else:
+                result = "Dealer wins. 😭"
+
+        if is_over:
+            clear()
+            player_hand.display_cards()
+            dealer_hand.display_cards(game_over=True)
+            print(f"\n{result}")
+
+        return is_over
+
+
+if __name__ == '__main__':
+    game = BlackJack()
+    game.play()

@@ -123,11 +123,12 @@ Usage: thingy [OPTIONS]
 > [字符串和编码](https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896)
 
 
+## 字符串
 
-## f-string
+### f-string
 > [f-string](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)
 
-## String format() 字符串格式化
+### str.format 字符串格式化
 > [7.1.2. The String format() Method](https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method)
 > [Python format 格式化函数](https://www.runoob.com/python/att-string-format.html)
 
@@ -179,8 +180,101 @@ def __str__(self):
 ```
 
 
-## String join() 字符串连接
+### str.join 字符串连接
 > [Python String join() Method](https://www.w3schools.com/python/ref_string_join.asp)
+
+
+### str.split 分割字符串
+> [str.split(sep=None, maxsplit=- 1)](https://docs.python.org/3/library/stdtypes.html?highlight=splitlines#str.split)
+
+
+### str.splitlines 划分多行
+> [str.splitlines](https://docs.python.org/3/library/stdtypes.html?highlight=splitlines#str.splitlines)
+
+```python
+string1 = "Hello\nWorld\n"
+lines1 = string1.splitlines()
+print(lines1)
+# 输出：['Hello', 'World']
+```
+
+## list 列表
+
+### list.extend 扩展列表
+> [Python List extend()方法](https://www.runoob.com/python/att-list-extend.html)
+
+将一个可迭代对象（如列表、元组、集合等）中的元素逐个添加到列表中
+```python
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+
+list1.extend(list2)
+
+print(list1) # [1, 2, 3, 4, 5, 6]
+```
+
+### list.pop 移除列表指定位置元素
+
+```python
+fruits = ['apple', 'banana', 'orange']
+
+# 移除并返回最后一个元素
+last_fruit = fruits.pop()
+print(last_fruit)  # 输出: 'orange'
+print(fruits)      # 输出: ['apple', 'banana']
+
+# 移除并返回指定位置的元素
+second_fruit = fruits.pop(1)
+print(second_fruit)  # 输出: 'banana'
+print(fruits)        # 输出: ['apple']
+```
+
+# 切片
+> [切片](https://www.liaoxuefeng.com/wiki/1016959663602400/1017269965565856)
+
+```python
+a = "Hello, World!"
+print(a[2:5])  # llo  不包括右边界
+```
+
+- 列表切片
+```python
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# 获取索引2到索引5之间的元素（不包括索引5）
+sliced_list = my_list[2:5]
+print(sliced_list)  # 输出: [3, 4, 5]
+
+# 获取从列表末尾开始的倒数两个元素 -1 为倒数第一个元素
+sliced_list = my_list[-2:]
+print(sliced_list)  # 输出: [9, 10]
+
+# 使用步长获取列表中的每第二个元素
+sliced_list = my_list[::2]
+print(sliced_list)  # 输出: [1, 3, 5, 7, 9]
+ 
+# 获取第一个元素到倒数第二元素
+my_list = [1, 2, 3, 4, 5]
+sliced_list = my_list[:-1]
+print(sliced_list)  # 输出: [1, 2, 3, 4]
+```
+
+- 字符串切片
+```python
+my_string = "Hello, World!"
+
+# 使用负数索引获取字符串末尾的字符
+sliced_string = my_string[-6:-1]
+print(sliced_string)  # 输出: "World"
+```
+
+- 元组切片
+```python
+my_tuple = (1, 2, 3, 4, 5)
+# 获取从索引1到索引4之间的元素（不包括索引4）
+sliced_tuple = my_tuple[1:4]
+print(sliced_tuple)  # 输出: (2, 3, 4)
+```
+
 
 # 列表生成式
 > [列表生成式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776)
@@ -210,12 +304,152 @@ for index, line in enumerate(lines):
 result = [''.join(line) for line in lines]
 ```
 
+
+```python
+def deal(self, number):
+    cards_dealt = []
+    for _ in range(number):
+        if len(self.cards) > 0:
+            card = self.cards.pop()
+            cards_dealt.append(card)
+    return cards_dealt   
+
+    # 简化上面的代码为一行
+    return [self.cards.pop() for _ in range(number) if self.cards]
+```
+
 # 生成器
 > [生成器](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)
+
+# 表达式
+> [6. Expressions](https://docs.python.org/3/reference/expressions.html)
+
+
+## 条件表达式 conditional expression
+> [6.13. Conditional expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions)
+> [Conditional Statements in Python](https://realpython.com/python-conditional-statements/)
+
+```python
+a = 2
+b = 2
+
+if b < 5:
+    a = a + 1
+else:
+    a = 0
+
+# 等价于
+a = a + 1 if b < 5 else 0
+print (a) # 0
+```
+
+```python
+a = 2
+b = 2
+
+if b < 5:
+    a = a + 1
+
+# 等价于
+a += 1 if b < 5 else 0
+print (a) # 2
+```
+# 操作符
+
+## * 操作符
+
+### 解包操作 unpacking
+```python
+numbers = [1, 2, 3, 4, 5]
+a, *b, c = numbers
+
+print(a)  # 输出: 1
+print(b)  # 输出: [2, 3, 4]
+print(c)  # 输出: 5
+```
+
+```python
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+list3 = [True, False, True]
+
+lists = [list1, list2, list3]
+
+zipped = zip(*lists)
+
+for item in zipped:
+    print(item)
+
+"""
+(1, 'a', True)
+(2, 'b', False)
+(3, 'c', True)
+"""
+```
+
+### 可变参数
+```python
+def print_arguments(*args):
+    for arg in args:
+        print(arg)
+
+print_arguments(1, 2, 3)  # 输出: 1 2 3
+
+# 在函数定义中，`*args`将多个参数打包成一个元组 `args`。
+# 在函数调用时，`*numbers`将元组 `numbers` 解包为多个参数传递给函数。
+numbers = (4, 5, 6)
+print_arguments(*numbers)  # 输出: 4 5 6
+```
+
+```python
+def concatenate(*args):
+    return ''.join(args)
+
+result = concatenate('Hello', ' ', 'World')
+print(result)  # 输出: Hello World
+```
+
 
 # 循环和分支结构
 > [第05课：分支结构](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第05课：分支结构.md)
 > [条件判断](https://www.liaoxuefeng.com/wiki/1016959663602400/1017099478626848)
+
+
+## for 循环
+
+### 从列表第二个元素开始循环
+
+- 利用 range
+```python
+my_list = [1, 2, 3, 4, 5]
+
+# 获取列表的元素个数
+length = len(my_list)
+
+# 从第二个元素开始循环
+for i in range(1, length):
+    print(my_list[i])
+```
+
+- 利用切片
+```python
+my_list = [1, 2, 3, 4, 5]
+
+# 获取从第二个元素开始的子列表
+sub_list = my_list[1:]
+
+# 循环遍历子列表
+for element in sub_list:
+    print(element)
+```
+
+```python
+my_list = [1, 2, 3, 4, 5]
+
+# 循环遍历列表，跳过第一个元素
+for i, element in enumerate(my_list[1:]):
+    print(i, element)
+```
 
 # Python Scopes and Namespaces
 > [9.2. Python Scopes and Namespaces](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)
@@ -439,6 +673,46 @@ for i, element in enumerate(seq):
 2 three
 ```
 
+### zip
+> [zip(*iterables, strict=False)](https://docs.python.org/3/library/functions.html?highlight=zip#zip)
+
+```python
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+list3 = [True, False, True]
+
+zipped = zip(list1, list2, list3)
+
+for item in zipped:
+    print(item)
+```
+
+输出：
+```python
+(1, 'a', True)
+(2, 'b', False)
+(3, 'c', True)
+```
+
+
+元素组合过程中定义分隔符：
+```python
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+list3 = [True, False, True]
+
+zipped = zip(list1, list2, list3)
+
+result_list = ['\t\t'.join(str(item) for item in items) for items in zipped]
+
+print(result_list) # ['1\t\ta\t\tTrue', '2\t\tb\t\tFalse', '3\t\tc\t\tTrue']
+```
+
+
+
+
+
+
 # 模块
 > [第13课：函数和模块](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第13课：函数和模块.md)
 > [6. Modules](https://docs.python.org/3/tutorial/modules.html#)
@@ -541,6 +815,42 @@ hello
 world
 ```
 
+## random 随机数模块
+> [random — Generate pseudo-random numbers](https://docs.python.org/3/library/random.html)
+
+### random.choice
+从非空序列中随机选择一个元素作为返回结果
+
+```python
+>>> import random
+>>> my_list = [1, 2, 3, 4, 5]
+>>> random_element = random.choice(my_list)
+>>> print(random_element)
+4
+```
+
+## os 操作系统接口模块
+> [os— Miscellaneous operating system interfaces](https://docs.python.org/3/library/os.html)
+
+### os.name
+The following names have currently been registered: 'posix', 'nt', 'java'.
+
+### os.system 执行命令
+```python
+import os
+
+if os.name == 'nt':
+    """ windows 操作系统 """
+    os.system('explorer') # 打开资源管理器
+    os.system('start www.baidu.com') # 打开网址
+    os.system('cls') # 清除终端
+elif os.name == 'posix':
+    """ linux 操作系统 """
+    os.system('pwd')
+    os.system('clear') # 清除终端
+```
+
+
 # 错误和异常
 > [8. Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)
 > [错误处理](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598873256736)
@@ -559,6 +869,42 @@ world
 > [Python - Public, Protected, Private Members](https://www.tutorialsteacher.com/python/public-private-protected-modifiers)
 
 
+## 类变量和实例变量
+> [python class variables](https://pynative.com/python-class-variables/)
+> [9.3.5. Class and Instance Variables](https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables)
+> [Class Variables, Attributes, and Properties](https://diveintopython.org/learn/classes/variables)
+
+
+类变量可以直接通过类名访问，而不用创建实例
+```python
+class MyClass:
+    class_var = 10  # 类变量
+
+    def __init__(self, instance_var):
+        self.instance_var = instance_var  # 实例变量
+
+
+# 通过类名访问类变量
+print(MyClass.class_var)  # 输出: 10
+
+# 创建类的实例
+obj1 = MyClass(20)
+obj2 = MyClass(30)
+
+# 访问实例变量
+print(obj1.instance_var)  # 输出: 20
+print(obj2.instance_var)  # 输出: 30
+
+# 类变量是共享的，对类变量的修改会影响所有实例
+MyClass.class_var = 50
+print(obj1.class_var)  # 输出: 50
+print(obj2.class_var)  # 输出: 50
+
+# 实例变量是每个实例独立拥有的
+obj1.instance_var = 100
+print(obj1.instance_var)  # 输出: 100
+print(obj2.instance_var)  # 输出: 30
+```
 
 ## @property 属性装饰器
 > [Python Property Decorator](https://www.pythontutorial.net/python-oop/python-property-decorator/)
