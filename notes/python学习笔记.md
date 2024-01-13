@@ -989,7 +989,7 @@ print(point1 < point2)  # 输出: True
 # 代码示例  
   
 ## 21 点扑克牌游戏  
-> 代码：[code](../code/cardGame/blackJack.py)  
+> 代码：[code](../code/card_game/blackjack.py)  
   
 解释器： python3.10.6  
 效果：  
