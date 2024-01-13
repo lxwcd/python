@@ -984,3 +984,14 @@ point2 = Point(3, 4)
 # 使用 < 运算符比较两个对象
 print(point1 < point2)  # 输出: True
 ```
+
+
+# 代码示例
+
+## 21 点扑克牌游戏
+> 代码：[code](../code/cardGame/blackJack.py)
+
+解释器： python3.10.6
+效果：
+![](img/2024-01-13-09-51-27.png)
+![](img/2024-01-13-09-52-00.png)
