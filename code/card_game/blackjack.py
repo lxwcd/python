@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Time: 2024-01-11
-# File: blackJack.py
+# File: blackjack.py
 # URL:
 #   代码参考：https://www.askpython.com/python/examples/blackjack-game-using-python
 #   代码参考：https://www.youtube.com/watch?v=aryte85bt_M&ab_channel=Beau
@@ -101,7 +101,8 @@ class Card:
     def list_of_card(self):
         return self.__str__().splitlines()
 
-    def ascii_of_hidden_card(self):
+    @staticmethod
+    def ascii_of_hidden_card():
         lines = """\
         ┌───────┐
         |░░░░░░░|
@@ -114,8 +115,9 @@ class Card:
 
         return textwrap.dedent(lines)
 
-    def list_of_hidden_card(self):
-        return self.ascii_of_hidden_card().splitlines()
+    @staticmethod
+    def list_of_hidden_card():
+        return Card.ascii_of_hidden_card().splitlines()
 
     def text_of_card(self):
         return f'{self.suits_values[self.suit]}{self.rank}: {self.card_value}'
@@ -297,6 +299,9 @@ class BlackJack:
         return is_over
 
 
-if __name__ == '__main__':
+def main():
     game = BlackJack()
     game.play()
+
+if __name__ == '__main__':
+    main()
