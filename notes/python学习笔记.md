@@ -200,6 +200,43 @@ print(lines1)
 # 输出：['Hello', 'World']  
 ```  
     
+### str.strip 移除字符串首部和尾部的字符
+> [str.strip([chars])](https://docs.python.org/3.12/library/stdtypes.html#str.strip)
+
+
+不指定字符则默认移除 whitespace，只能移除开头和结尾的字符，中间的不移除
+```python
+>>> '   spacious   '.strip()
+'spacious'
+>>> '   spacious     hello  '.strip()
+'spacious     hello'
+>>> '   www.example.com   '.strip('wcom')
+'   www.example.com   '
+```
+
+### str.rstrip 移除字符串尾部字符
+
+### str.lstrip 移除字符串首部字符
+
+### str.title 返回标题话的字符串
+每个单词的首字母变大写，其余字母小写
+
+```python
+>>> '~HEllO WORld++'.title()
+'~Hello World++'
+```
+
+### repr(str) 显示换行符等不可见字符
+```python
+>>> a = 'hello\t\tworld'
+>>> print(a)
+hello           world
+>>> print(repr(a))
+'hello\t\tworld'
+>>> print(str(a))
+hello           world
+```
+
 ## list 列表  
     
 ### list.extend 扩展列表  
@@ -863,8 +900,8 @@ Packages are a way of structuring Python’s module namespace by using “dotted
 ## textwrap 文本处理模块  
 > [textwrap](https://docs.python.org/3.12/library/textwrap.html)  
     
-### textwrap.dedent() 处理每行缩进  
-如果书写时每行左侧有缩进，可以用  textwrap.dedent() 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)  
+### textwrap.dedent 删除每行开头的空格  
+如果书写时每行左侧有缩进，可以用  textwrap.dedent 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)  
     
     
 ```python  
@@ -882,6 +919,11 @@ Packages are a way of structuring Python’s module namespace by using “dotted
 hello  
 world  
 ```  
+
+### textwrap.indent 为行开头添加前缀
+
+
+
     
 ## os 操作系统接口模块  
 > [os— Miscellaneous operating system interfaces](https://docs.python.org/3/library/os.html)  
@@ -980,6 +1022,16 @@ b'hello world'
     
 ## raise  
     
+
+## with
+> [8.5. The with statement](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)
+> [Python with 关键字](https://www.runoob.com/python3/python-with.html)
+
+```python
+
+```
+
+
 # 面向对象编程  
 > [Object Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php)  
   
@@ -1135,6 +1187,17 @@ print(str(point))  # Output: Point(3, 4)
 print(repr(point))  # Output: Point(x=3, y=4)  
 print(point.__repr__())  # Output: Point(x=3, y=4)  
 ```  
+
+```python
+>>> a = 'hello\t\tworld'
+>>> print(a)
+hello           world
+>>> print(repr(a))
+'hello\t\tworld'
+>>> print(str(a))
+hello           world
+```
+
     
 ## 运算符重载  
 > [operator — Standard operators as functions](https://docs.python.org/3/library/operator.html)  
@@ -1161,7 +1224,26 @@ print(point1 < point2)  # 输出: True
   
 # 文件读写  
 > [第21课：文件读写和异常处理](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第21课：文件读写和异常处理.md)  
+> [29. File Management](https://python-course.eu/python-tutorial/file-management.php)
   
+
+## CSV 文件读写
+> [csv — CSV File Reading and Writing](https://docs.python.org/3/library/csv.html)
+
+更专业数据分析用 pandas 库
+
+## word 文件操作
+> [第26课：用Python操作Word和PowerPoint](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第26课：用Python操作Word文件和PowerPoint.md)
+
+
+## pdf 文件操作
+> [第27课：用Python操作PDF文件](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第27课：用Python操作PDF文件.md)
+
+
+
+# 数据分析
+> [Numerical Programming with Python](https://python-course.eu/numerical-programming/)
+
   
   
 # 代码示例  
