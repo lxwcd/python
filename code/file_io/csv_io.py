@@ -9,7 +9,6 @@ import csv
 import random
 import os
 import shutil
-import textwrap
 
 # 新建文件夹
 folder_path = "./test_files"

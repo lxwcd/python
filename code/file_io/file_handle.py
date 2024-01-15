@@ -29,6 +29,14 @@ with open("./test_files/file_definition.txt", mode="w") as f:
     f.write(textwrap.dedent(definition))  # remove leading whitespace from every line
 
 with open("./test_files/file_definition.txt", mode='r', encoding='utf-8') as f:
+    # s = f.read()
+    # print(type(s))
+    # print(s)
+    # str = ""
+    # for line in f:
+    #     str += line
+    #
+    # print(str)
     for line in f:
         print(line.strip())  # remove leading and trailing whitespace
 
