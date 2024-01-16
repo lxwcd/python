@@ -1,5 +1,5 @@
 Python 学习  
-      
+        
 # 资源  
 > [官方文档](https://docs.python.org/3/tutorial/appetite.html)  
 > [Python-100-Days](https://github.com/jackfrued/Python-100-Days/tree/master)  
@@ -10,41 +10,41 @@ Python 学习
 > Python 代码可视化生成器：[Python Tutor](https://pythontutor.com/visualize.html#mode=edit)  
 > 查询特殊符号的unicode代码[unicode](https://home.unicode.org/)  
 > 边框符号的unicode码[Box Drawing](https://unicode.org/charts/nameslist/n_2500.html)  
-      
+        
 # 安装  
 > 文档：[第01课：初识Python](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第01课：初识Python.md)  
 > 视频：[Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz/?p=3&spm_id_from=pageDriver&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-      
+        
 ## Windows 安装  
-      
+        
 ### 安装 python 解释器  
 官网下载安装包，跟着视频安装  
-      
+        
 ### VSCode 配置 python  
 > [Python VScode 配置](https://www.runoob.com/python3/python-vscode-setup.html)  
-      
+        
 vscode 中安装插件 python  
-      
+        
 ### PyCharm 安装配置  
 > [配置 PyCharm 设置](https://www.pycharm.net.cn/configuring-project-and-ide-settings.html)  
-      
+        
 Python IDE  
-      
+        
 #### 配置 vim 编辑器  
 > [在 PyCharm 中使用 Vim 编辑器 (IdeaVim)](https://www.pycharm.net.cn/using-product-as-the-vim-editor.html)  
 > [ideavim](https://github.com/JetBrains/ideavim?tab=readme-ov-file)  
-      
+        
 如果使用自定义 vimrc 配置文件，默认路径在 `~/.ideavimrc`，家目录的位置可以在 pycharm 终端通过 `echo $HOME` 获取，如 `C:\Users\lx`  
-      
+        
 #### 修改下载镜像源  
 打开终端，设置 pip 安装软件的镜像源  
 ```bash  
 pip config set global.index-url https://pypi.doubanio.com/simple  
 ```  
-      
+        
 #### 快捷键配置  
 > [配置键盘快捷键](https://www.pycharm.net.cn/configuring-keyboard-and-mouse-shortcuts.html)  
-      
+        
 ||||  
 |:--:|:--:|:--:|  
 |设置|Ctrl+Alt+S||  
@@ -53,47 +53,47 @@ pip config set global.index-url https://pypi.doubanio.com/simple
 |运行选择的行|Alt+E|自定义|  
 |代码格式化|Ctrl+Alt+L||  
 |文件格式化|Ctrl+Alt+Shift+L||  
-      
-      
+        
+        
 #### 安装 IPython  
 IPython（即交互式 Python）是一个用于 Python 的交互式命令行界面，它相比标准的 Python shell 提供了增强的功能和特性。  
-      
+        
 ```bash  
 pip install ipython  
 ```  
-      
+        
 终端输入 `ipython` 进入该交互式环境  
-      
+        
 # 代码规范  
 > [4.9. Intermezzo: Coding Style](https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style)  
-      
+        
 # 基本语法规则  
 > [2. Lexical analysis](https://docs.python.org/3/reference/lexical_analysis.html#line-structure)  
-      
+        
 ## 书写多行  
 > [2.1.5. Explicit line joining](https://docs.python.org/3/reference/lexical_analysis.html#explicit-line-joining)  
-      
-      
+        
+        
 ### 多行注释  
 ```python  
 # comment  
-      
+        
 """  
 comment line  
 comment line  
 """  
 ```  
-      
+        
 ### 非字符串和注释多物理行合并为逻辑行  
 ```python  
 # 以反斜杠（/）结尾  
-      
+        
 if 1900 < year < 2100 and 1 <= month <= 12 \  
    and 1 <= day <= 31 and 0 <= hour < 24 \  
    and 0 <= minute < 60 and 0 <= second < 60:   # Looks like a valid date  
         return 1  
 ```  
-      
+        
 Expressions in parentheses, square brackets or curly braces can be split over more than one physical line without using backslashes.  
 ```python  
 month_names = ['Januari', 'Februari', 'Maart',      # These are the  
@@ -101,10 +101,10 @@ month_names = ['Januari', 'Februari', 'Maart',      # These are the
                'Juli',    'Augustus', 'September',  # for the months  
                'Oktober', 'November', 'December']   # of the year  
 ```  
-      
+        
 ### 多行字符串  
 One way is using triple-quotes: """...""" or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a \ at the end of the line.  
-      
+        
 ```python  
 print("""\  
 Usage: thingy [OPTIONS]  
@@ -112,38 +112,38 @@ Usage: thingy [OPTIONS]
      -H hostname               Hostname to connect to  
 """)  
 ```  
-      
+        
 每行末尾自动加上换行符，第一行加上 `\`可防止夹换行符  
-      
+        
 如果书写时每行左侧有缩进，可以用  textwrap.dedent() 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)  
-      
+        
 # 数据类型和变量  
 > [3. An Informal Introduction to Python](https://docs.python.org/3/tutorial/introduction.html)  
 > [数据类型和变量](https://www.liaoxuefeng.com/wiki/1016959663602400/1017063826246112)  
 > [第03课：Python语言元素之变量](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第03课：Python语言元素之变量.md)  
 > [Built-in Types](https://docs.python.org/3/library/stdtypes.html#)  
 > [字符串和编码](https://www.liaoxuefeng.com/wiki/1016959663602400/1017075323632896)  
-      
-      
+        
+        
 ## 字符串  
-      
+        
 ### f-string  
 > [f-string](https://docs.python.org/3/reference/lexical_analysis.html#f-strings)  
-      
+        
 ### str.format 字符串格式化  
 > [7.1.2. The String format() Method](https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method)  
 > [Python format 格式化函数](https://www.runoob.com/python/att-string-format.html)  
-      
+        
 ```python  
 print('We are the {} who say "{}!"'.format('knights', 'Ni'))  
 # We are the knights who say "Ni!"  
-      
+        
 print('{0} and {1}'.format('spam', 'eggs'))  
 # spam and eggs  
-      
+        
 print('{1} and {0}'.format('spam', 'eggs'))  
 # eggs and spam  
-      
+        
 print('This {food} is {adjective}.'.format(  
       food='spam', adjective='absolutely horrible'))  
 # This spam is absolutely horrible.  
@@ -164,7 +164,7 @@ def __str__(self):
     |     {}|  
     └───────┘  
     """.format('{rank: <2}', '{suit_value: <2}', '{rank: >2}')  
-      
+        
     # 另一种方式，书写不美观，且麻烦  
     # lines = [[] for i in range(7)]  
     # space = '' if self.rank == '10' else ' '  
@@ -177,33 +177,33 @@ def __str__(self):
     # lines[6].append('└───────┘')  
     # result = [''.join(line) for line in lines]  
     # return '\n'.join(result)  
-          
+            
     return textwrap.dedent(lines.format(rank=self.rank, suit_value=self.suit_value))  
 ```  
-      
-      
+        
+        
 ### str.join 字符串连接  
 > [Python String join() Method](https://www.w3schools.com/python/ref_string_join.asp)  
-      
-      
+        
+        
 ### str.split 分割字符串  
 > [str.split(sep=None, maxsplit=- 1)](https://docs.python.org/3/library/stdtypes.html?highlight=splitlines#str.split)  
-      
-      
+        
+        
 ### str.splitlines 划分多行  
 > [str.splitlines](https://docs.python.org/3/library/stdtypes.html?highlight=splitlines#str.splitlines)  
-      
+        
 ```python  
 string1 = "Hello\nWorld\n"  
 lines1 = string1.splitlines()  
 print(lines1)  
 # 输出：['Hello', 'World']  
 ```  
-      
+        
 ### str.strip 移除字符串首部和尾部的字符  
 > [str.strip([chars])](https://docs.python.org/3.12/library/stdtypes.html#str.strip)  
-  
-  
+    
+    
 不指定字符则默认移除 whitespace，只能移除开头和结尾的字符，中间的不移除  
 ```python  
 >>> '   spacious   '.strip()  
@@ -213,19 +213,25 @@ print(lines1)
 >>> '   www.example.com   '.strip('wcom')  
 '   www.example.com   '  
 ```  
-  
+    
 ### str.rstrip 移除字符串尾部字符  
-  
+    
 ### str.lstrip 移除字符串首部字符  
-  
+    
 ### str.title 返回标题话的字符串  
 每个单词的首字母变大写，其余字母小写  
-  
+    
 ```python  
 >>> '~HEllO WORld++'.title()  
 '~Hello World++'  
 ```  
-  
+    
+### str.count 统计字符出现次数  
+```python  
+message = "Hello, how are you today?"  
+count_e = message.count("e")  
+print(count_e)  # 输出: 2  
+```  
 ### repr(str) 显示换行符等不可见字符  
 ```python  
 >>> a = 'hello\t\tworld'  
@@ -236,11 +242,11 @@ hello           world
 >>> print(str(a))  
 hello           world  
 ```  
-  
+    
 ### 模板字符串 Template strings  
 > [Template strings](https://docs.python.org/3.12/library/string.html#template-strings)  
-  
-  
+    
+    
 ```python  
 >>> from string import Template  
 >>> s = Template('$who likes $what')  
@@ -256,71 +262,71 @@ hello           world
 >>> str1  
 "tim's  cat"  
 ```  
-  
+    
 ### raw string 原始字符串  
 > [2.4.1. String and Bytes literals](https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals)  
-  
-Both string and bytes literals may optionally be prefixed with a letter 'r' or 'R'; such strings are called raw strings and treat backslashes as literal characters.   
-  
-  
+    
+Both string and bytes literals may optionally be prefixed with a letter 'r' or 'R'; such strings are called raw strings and treat backslashes as literal characters.  
+    
+    
 字符串前面加上r表示原始字符串（raw string），这意味着字符串中的转义字符将被视为普通字符，而不会被解释为特殊字符。这在处理正则表达式、文件路径等需要保留反斜杠的情况下非常有用。  
-  
+    
 ```python  
 # 不使用原始字符串  
 string1 = "C:\path\to\file.txt"  
 print(string1)  # 输出：C:\path	o\file.txt  
-  
+    
 # 使用原始字符串  
 string2 = r"C:\path\to\file.txt"  
 print(string2)  # 输出：C:\path\to\file.txt  
 ```  
-  
+    
 ```python  
 import re  
-  
+    
 # 使用原始字符串r"\d+"，我们不需要对正则表达式中的反斜杠进行双重转义，因为原始字符串会将其视为普通字符。  
 pattern = r"\d+"  
 string = "12345"  
-  
+    
 result = re.findall(pattern, string)  
 print(result)  # 输出：['12345']  
 ```  
-  
+    
 ## list 列表  
-      
+        
 ### list.extend 扩展列表  
 > [Python List extend()方法](https://www.runoob.com/python/att-list-extend.html)  
-      
+        
 将一个可迭代对象（如列表、元组、集合等）中的元素逐个添加到列表中  
 ```python  
 list1 = [1, 2, 3]  
 list2 = [4, 5, 6]  
-      
+        
 list1.extend(list2)  
-      
+        
 print(list1) # [1, 2, 3, 4, 5, 6]  
 ```  
-      
+        
 ### list.pop 移除列表指定位置元素  
-      
+        
 ```python  
 fruits = ['apple', 'banana', 'orange']  
-      
+        
 # 移除并返回最后一个元素  
 last_fruit = fruits.pop()  
 print(last_fruit)  # 输出: 'orange'  
 print(fruits)      # 输出: ['apple', 'banana']  
-      
+        
 # 移除并返回指定位置的元素  
 second_fruit = fruits.pop(1)  
 print(second_fruit)  # 输出: 'banana'  
 print(fruits)        # 输出: ['apple']  
 ```  
-    
+      
 ## 二进制数据类型 Bytes  
 > [Bytes Object](https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview)  
+        
       
-    
 ```python  
 >>> s2 = 'hello world'  
 >>> s3 = s2.encode()  
@@ -329,7 +335,7 @@ print(fruits)        # 输出: ['apple']
 >>> print(s3)  
 b'hello world'  
 ```  
-    
+      
 ```python  
 >>> import base64  
 >>> s = b'hello world'  
@@ -340,45 +346,189 @@ b'hello world'
 >>> base64.b64encode(s)  
 b'aGVsbG8gd29ybGQ='  
 ```  
-    
+      
+## 浅拷贝和深拷贝  
+> [11. Shallow and Deep Copy](https://python-course.eu/python-tutorial/shallow-and-deep-copy.php)  
+> [可视化代码](https://pythontutor.com/render.html#mode=edit)  
+> [copy — Shallow and deep copy operations](https://docs.python.org/3/library/copy.html?highlight=list%20copy)  
+  
+### 直接赋值  
+```python  
+>>> c1 = ['r', 'b']  
+>>> c2 = c1  
+>>> print(id(c1), id(c2))  
+1999885099584 1999885099584  
+```  
+c1 和 c2 内存地址相同，两个变量引用相同列表对象，为浅拷贝  
+  
+修改其中一个变量，另一个同步变化  
+```python  
+>>> c2[1] = 'y'  
+>>> print(id(c1), id(c2))  
+1999885099584 1999885099584  
+>>> print(c1, c2)  
+['r', 'y'] ['r', 'y']  
+```  
+  
+### list.copy 拷贝  
+help() 查看帮助，为浅拷贝  
+```python  
+>>> help(list.copy)  
+Help on method_descriptor:  
+copy(self, /)  
+    Return a shallow copy of the list.  
+```  
+  
+用 copy 函数拷贝，初始两个变量值相同  
+```python  
+>>> person1 = ["Swen", ["Seestrasse", "Konstanz"]]  
+>>> person2 = person1.copy()  
+>>> id(person1), id(person2)  
+(140274482675840, 140274482838336)  
+>>> id(person1[0]), id(person2[0])  
+(140274482684528, 140274482684528)  
+>>> id(person1[1]), id(person2[1])  
+(140274482838400, 140274482838400)  
+```  
+  
+如果修改其中一个变量的值，变化的值会分配新的内存地址  
+```python  
+>>> person2[0] = "Sarah"  
+>>> id(person1[0]), id(person2[0])  
+(140274482684528, 140274484527344)  
+>>> id(person1[1]), id(person2[1])  
+(140274482838400, 140274482838400)  
+```  
+其余的相同的值共享一个内存地址  
+  
+问题，当修改列表中的第二个元素的值时，两个变量的值同步修改：  
+```python  
+>>> person1  
+['Swen', ['Seestrasse', 'Konstanz']]  
+>>>  
+>>> person2  
+['Sarah', ['Seestrasse', 'Konstanz']]  
+>>>  
+>>> person2[1][0] = "Bücklestraße"  
+>>>  
+>>> person1  
+['Swen', ['Bücklestraße', 'Konstanz']]  
+>>>  
+>>> person2  
+['Sarah', ['Bücklestraße', 'Konstanz']]  
+```  
+第二个元素引用相同的内存的地址  
+  
+  
+### list.deepcopy  
+无上面 list.copy 的问题  
+  
+```python  
+>>> from copy import deepcopy  
+>>> person1 = ["Swen", ["Seestrasse", "Konstanz"]]  
+>>> person2 = deepcopy(person1)  
+>>>  
+>>> person2[0] = "Sarah"  
+>>> person2[1][0] = "Bücklestraße"  
+>>>  
+>>> person1  
+['Swen', ['Seestrasse', 'Konstanz']]  
+>>>  
+>>> person2  
+['Sarah', ['Bücklestraße', 'Konstanz']]  
+```  
+  
+## 列表合并为字典  
+  
+```python  
+keys = ["name", "age", "city"]  
+values = ["Alice", 25, "New York"]  
+  
+dictionary = dict(zip(keys, values))  
+print(dictionary)  
+  
+# {'name': 'Alice', 'age': 25, 'city': 'New York'}  
+```  
+  
+## dic 字典  
+  
+## set 集合  
+> [13. Sets and Frozen Sets](https://python-course.eu/python-tutorial/sets-and-frozen-sets.php)  
+  
+- 集合中元素不能重复  
+```python  
+>>> c = set([1, 1, 2, 3, 4])  
+{1, 2, 3, 4}  
+```  
+  
+- 集合中的元素要是 hashable 对象，元素是不可变对象  
+下面写法出错，不能以列表作为元素  
+```python  
+>>> cities = set((["Python","Perl"], ["Paris", "Berlin", "London"]))  
+```  
+  
+能以元组作为元素  
+```python  
+>>> cities = set((("Python","Perl"), ("Paris", "Berlin", "London")))  
+```  
+  
+- 集合中元素要为 immutable object，但集合本身是 mutable，可以添加和删除元素等  
+  
+```python  
+fruits = {"apple", "banana"}  
+fruits.update(["orange", "mango"])  
+print(fruits)  # 输出: {'apple', 'banana', 'orange', 'mango'}  
+```  
+  
+- frozenset 是 immutable  
+  
+- 注意集合赋值和 copy 的区别  
+  
+- 注意 remove 和 discard 的区别  
+  
+- 注意 add 和 update 区别  
+  
+  
+  
+  
 # 切片  
 > [切片](https://www.liaoxuefeng.com/wiki/1016959663602400/1017269965565856)  
-      
+        
 ```python  
 a = "Hello, World!"  
 print(a[2:5])  # llo  不包括右边界  
 ```  
-      
+        
 - 列表切片  
 ```python  
 my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]  
 # 获取索引2到索引5之间的元素（不包括索引5）  
 sliced_list = my_list[2:5]  
 print(sliced_list)  # 输出: [3, 4, 5]  
-      
+        
 # 获取从列表末尾开始的倒数两个元素 -1 为倒数第一个元素  
 sliced_list = my_list[-2:]  
 print(sliced_list)  # 输出: [9, 10]  
-      
+        
 # 使用步长获取列表中的每第二个元素  
 sliced_list = my_list[::2]  
 print(sliced_list)  # 输出: [1, 3, 5, 7, 9]  
-       
+         
 # 获取第一个元素到倒数第二元素  
 my_list = [1, 2, 3, 4, 5]  
 sliced_list = my_list[:-1]  
 print(sliced_list)  # 输出: [1, 2, 3, 4]  
 ```  
-      
+        
 - 字符串切片  
 ```python  
 my_string = "Hello, World!"  
-      
+        
 # 使用负数索引获取字符串末尾的字符  
 sliced_string = my_string[-6:-1]  
 print(sliced_string)  # 输出: "World"  
 ```  
-      
+        
 - 元组切片  
 ```python  
 my_tuple = (1, 2, 3, 4, 5)  
@@ -386,37 +536,37 @@ my_tuple = (1, 2, 3, 4, 5)
 sliced_tuple = my_tuple[1:4]  
 print(sliced_tuple)  # 输出: (2, 3, 4)  
 ```  
-      
-      
+        
+        
 # 列表生成式  
 > [列表生成式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776)  
-      
+        
 ```python  
 # 生成一个由两个元素的元组组成的列表  
 pairs = [(x, y) for x in [1, 2, 3] for y in [4, 5, 6]]  
 print(pairs)  # 输出: [(1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6), (3, 4), (3, 5), (3, 6)]  
-      
+        
 # 生成一个由偶数构成的列表  
 numbers = [x for x in range(10) if x % 2 == 0]  
 print(numbers)  # 输出: [0, 2, 4, 6, 8]  
-      
+        
 # 生成一个由两个字符串的组合构成的列表  
 words = ['Hello', 'World', 'Python']  
 combined = [x + ' ' + y for x in words for y in words if x != y]  
 # 输出: ['Hello World', 'Hello Python', 'World Hello', 'World Python', 'Python Hello', 'Python World']  
 print(combined)  
 ```  
-      
+        
 ```python  
 result = []  
 for index, line in enumerate(lines):  
     result.append(''.join(lines[index]))  
-      
+        
 # 上面三行代码用下面一行代替  
 result = [''.join(line) for line in lines]  
 ```  
-      
-      
+        
+        
 ```python  
 def deal(self, number):  
     cards_dealt = []  
@@ -425,269 +575,348 @@ def deal(self, number):
             card = self.cards.pop()  
             cards_dealt.append(card)  
     return cards_dealt  
-      
+        
     # 简化上面的代码为一行  
     return [self.cards.pop() for _ in range(number) if self.cards]  
 ```  
-      
+        
 # 生成器  
 > [生成器](https://www.liaoxuefeng.com/wiki/1016959663602400/1017318207388128)  
-      
+        
 # 表达式  
 > [6. Expressions](https://docs.python.org/3/reference/expressions.html)  
-      
-      
+        
+        
 ## 条件表达式 conditional expression  
 > [6.13. Conditional expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions)  
 > [Conditional Statements in Python](https://realpython.com/python-conditional-statements/)  
-      
+        
 ```python  
 a = 2  
 b = 2  
-      
+        
 if b < 5:  
     a = a + 1  
 else:  
     a = 0  
-      
+        
 # 等价于  
 a = a + 1 if b < 5 else 0  
 print (a) # 0  
 ```  
-      
+        
 ```python  
 a = 2  
 b = 2  
-      
+        
 if b < 5:  
     a = a + 1  
-      
+        
 # 等价于  
 a += 1 if b < 5 else 0  
 print (a) # 2  
 ```  
 # 操作符  
-      
+        
 ## * 操作符  
-      
+        
 ### 解包操作 unpacking  
 ```python  
 numbers = [1, 2, 3, 4, 5]  
 a, *b, c = numbers  
-      
+        
 print(a)  # 输出: 1  
 print(b)  # 输出: [2, 3, 4]  
 print(c)  # 输出: 5  
 ```  
-      
+        
 ```python  
 list1 = [1, 2, 3]  
 list2 = ['a', 'b', 'c']  
 list3 = [True, False, True]  
-      
+        
 lists = [list1, list2, list3]  
-      
+        
 zipped = zip(*lists)  
-      
+        
 for item in zipped:  
     print(item)  
-      
+        
 """  
 (1, 'a', True)  
 (2, 'b', False)  
 (3, 'c', True)  
 """  
 ```  
-      
+        
 ### 可变参数  
 ```python  
 def print_arguments(*args):  
     for arg in args:  
         print(arg)  
-      
+        
 print_arguments(1, 2, 3)  # 输出: 1 2 3  
-      
+        
 # 在函数定义中，`*args`将多个参数打包成一个元组 `args`。  
 # 在函数调用时，`*numbers`将元组 `numbers` 解包为多个参数传递给函数。  
 numbers = (4, 5, 6)  
 print_arguments(*numbers)  # 输出: 4 5 6  
 ```  
-      
+        
 ```python  
 def concatenate(*args):  
     return ''.join(args)  
-      
+        
 result = concatenate('Hello', ' ', 'World')  
 print(result)  # 输出: Hello World  
 ```  
-      
-      
+        
+        
+### 重复 repetition  
+> [The Pitfalls of Repetitions](https://python-course.eu/python-tutorial/sequential-data-types.php)  
+  
+  
+注意重复操作时的一些陷阱  
+```python  
+nested_list = [[0] * 3] * 4  
+print(nested_list)  
+# 输出: [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]]  
+  
+nested_list[0][0] = 1  
+print(nested_list)  
+# 输出: [[1, 0, 0], [1, 0, 0], [1, 0, 0], [1, 0, 0]]  
+```  
+可通过 [可视化代码](https://pythontutor.com/render.html#mode=edit) 查看原理  
+  
+  
+  
+  
+  
+  
 # 循环和分支结构  
 > [第05课：分支结构](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第05课：分支结构.md)  
 > [条件判断](https://www.liaoxuefeng.com/wiki/1016959663602400/1017099478626848)  
-      
-      
+        
+        
 ## for 循环  
-      
+        
 ### 从列表第二个元素开始循环  
-      
+        
 - 利用 range  
 ```python  
 my_list = [1, 2, 3, 4, 5]  
-      
+        
 # 获取列表的元素个数  
 length = len(my_list)  
-      
+        
 # 从第二个元素开始循环  
 for i in range(1, length):  
     print(my_list[i])  
 ```  
-      
+        
 - 利用切片  
 ```python  
 my_list = [1, 2, 3, 4, 5]  
-      
+        
 # 获取从第二个元素开始的子列表  
 sub_list = my_list[1:]  
-      
+        
 # 循环遍历子列表  
 for element in sub_list:  
     print(element)  
 ```  
-      
+        
 ```python  
 my_list = [1, 2, 3, 4, 5]  
-      
+        
 # 循环遍历列表，跳过第一个元素  
 for i, element in enumerate(my_list[1:]):  
     print(i, element)  
 ```  
-      
+        
+# 模式匹配 match case  
+> [17. Structural Pattern Matching](https://python-course.eu/python-tutorial/structural-pattern-matching.php)  
+  
+  
+```python  
+command = input("What are you doing next? ")  
+match command.split():  
+    case ["go", ("north" | "south" | "east" | "west") as direction]:  
+        print(f"You go {direction}")  
+```  
+  
+```python  
+command = input("What are you doing next? ")  
+possible_direction = ['north', 'south']  
+match command.split():  
+    case ["go", direction] if direction in possible_direction:  
+        print(f"So, let's go {direction}!")  
+```  
+  
+# 输入和输出  
+  
+## 输入 input  
+- 区别 eval(input()) 和 input()  
+  
+  
+## 输出 print  
+> [22. Formatted Output](https://python-course.eu/python-tutorial/formatted-output.php)  
+  
+  
+  
+  
 # Python Scopes and Namespaces  
 > [9.2. Python Scopes and Namespaces](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=79&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-      
-      
+> [27. Namespaces](https://python-course.eu/python-tutorial/namespaces.php)  
+  
+        
 1. 作用域规则：  
    - 局部作用域（Local Scope）：在函数内部定义的变量具有局部作用域，只能在函数内部访问。  
    - 嵌套作用域（Enclosing Scope）：当函数嵌套在另一个函数内部时，内部函数可以访问外部函数的变量。外部函数的作用域称为嵌套作用域。  
    - 全局作用域（Global Scope）：在模块级别定义的变量具有全局作用域，可以在模块中的任何地方访问。  
    - 内置作用域（Built-in Scope）：Python中有一些内置的名称，例如`print()`和`len()`。这些名称属于内置作用域，可以在任何地方直接访问。  
-      
+        
 2. LEGB规则：Python中的名称解析遵循LEGB规则，即按照以下顺序查找名称：  
    - Local（局部）：在当前作用域内查找变量名。  
    - Enclosing（嵌套）：在嵌套作用域中查找变量名，逐级向外查找。  
    - Global（全局）：在全局作用域中查找变量名。  
    - Built-in（内置）：在内置作用域中查找变量名。  
-      
+        
    根据LEGB规则，Python会按照从内到外的顺序查找变量名，直到找到第一个匹配的名称。如果没有找到匹配的名称，将引发`NameError`异常。  
-      
+        
 3. global和nonlocal关键字：  
    - `global`关键字：当在函数内部修改全局变量时，需要使用`global`关键字声明变量为全局变量，以便在函数内部进行修改。  
    - `nonlocal`关键字：当在嵌套函数内部修改嵌套作用域的变量时，需要使用`nonlocal`关键字声明变量为非局部变量。  
-      
+        
 4. 静态名称解析：  
    在Python 3中，引入了类型提示和静态类型检查工具，例如mypy。这些工具可以在编译时对代码进行静态类型检查，提供更早的错误检测和自动补全。静态类型检查可以在一定程度上改变名称解析的行为，使其更静态化，并提供更准确的类型推断。  
-      
+        
 Python中的作用域由文本结构确定，名称解析是在运行时动态进行的。LEGB规则指定了名称解析的优先级顺序。使用`global`和`nonlocal`关键字可以修改全局变量和嵌套作用域的变量。Python语言的演进将静态类型检查引入到编译阶段，提供了更准确的类型推断和错误检测。这些概念对于理解Python中的作用域和名称解析机制至关重要。  
-      
+        
 # 函数  
 > [第13课：函数和模块](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第13课：函数和模块.md)  
 > [函数](https://www.liaoxuefeng.com/wiki/1016959663602400/1017105145133280)  
 > [4.7. Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)  
-      
-      
+        
+        
 ## 变量的作用域  
 > [4.7. Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=71&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-      
-      
+        
+        
 The execution of a function introduces a new symbol table used for the local variables of the function. More precisely, all variable assignments in a function store the value in the local symbol table; whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names. Thus, global variables and variables of enclosing functions cannot be directly assigned a value within a function (unless, for global variables, named in a global statement, or, for variables of enclosing functions, named in a nonlocal statement), although they may be referenced.  
-      
-      
+        
+  
+```python  
+x = 10  # 全局变量  
+  
+def outer_function():  
+    x = 20  # 外部函数的局部变量  
+  
+    def inner_function():  
+        nonlocal x  
+        x = 30  # 修改外部函数的变量  
+        print("inner_function 中的 x:", x)  # 输出: 30  
+  
+    inner_function()  
+    print("outer_function 中的 x:", x)  # 输出: 30  
+  
+def global_function():  
+    global x  
+    x = 40  # 修改全局变量的值  
+    print("global_function 中的 x:", x)  # 输出: 40  
+  
+outer_function()  
+print("全局作用域中的 x:", x)  # 输出: 40  
+  
+global_function()  
+print("全局作用域中的 x:", x)  # 输出: 40  
+```  
+        
 ## 默认参数  
 > [4.7. Defining Functions](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)  
-      
+        
 The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls:  
-      
+        
 ```python  
 def f(a, L=[]):  
     L.append(a)  
     return L  
-      
+        
 print(f(1))  
 print(f(2))  
 print(f(3))  
 ```  
-      
+        
 output:  
 ```python  
 [1]  
 [1, 2]  
 [1, 2, 3]  
 ```  
-      
+        
 ## 特殊参数  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=80&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
 > [第15课：函数使用进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第15课：函数使用进阶.md)  
 > [4.8.2. Keyword Arguments](https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments)  
-      
-      
+> [26. Parameters And Arguments](https://python-course.eu/python-tutorial/parameters-and-arguments.php)  
+        
 By default, arguments may be passed to a Python function either by position or explicitly by keyword.  
-      
+        
 ### 位置参数 positional argument  
 默认参数为位置参数，调用函数时直接传递参数值  
 ```python  
 # 标准参数可以传递参数值或 arg=value 的形式  
 def standard_arg(arg):  
     print(arg)  
-      
+        
 def pos_only_arg(arg, /):  
     print(arg)  
-      
+        
 def kwd_only_arg(*, arg):  
     print(arg)  
-      
+        
 def combined_example(pos_only, /, standard, *, kwd_only):  
     print(pos_only, standard, kwd_only)  
 ```  
-      
+        
 Parameters following the / may be positional-or-keyword or keyword-only.  
-      
-      
+        
+        
 ### 关键字参数 keyword argument  
 函数调用时传递参数为 name=value 形式  
-      
+        
 ```python  
 def kwd_only_arg(*, arg):  
     print(arg)  
-      
+        
 kwd_only_arg(arg=3)  
 ```  
-      
+        
 ### 可变参数 *arg  
 ```python  
 def write_multiple_items(file, separator, *args):  
     file.write(separator.join(args))  
 ```  
-      
+        
 *arg 传递的参数只能是位置参数，传递的参数类型为 tuple  
 上面例子中前面的两个参数为位置参数，不能传递 name=value 的形式  
-      
+        
 *arg 后面的参数为关键字参数  
 ```python  
 def concat(*args, sep="/"):  
     return sep.join(args)  
-      
+        
 concat("earth", "mars", "venus")  
 'earth/mars/venus'  
 concat("earth", "mars", "venus", sep=".")  
 'earth.mars.venus'  
 ```  
-      
+        
 ### 可变参数 **kwarg  
 **kwarg 传递的可变参数类型为 dictionary，参数为关键字参数  
-      
+        
 ```python  
 def cheeseshop(kind, *arguments, **keywords):  
     print("-- Do you have any", kind, "?")  
@@ -698,83 +927,116 @@ def cheeseshop(kind, *arguments, **keywords):
     for kw in keywords:  
         print(kw, ":", keywords[kw])  
 ```  
-      
+        
 通常 *arguments 放在 **keywards 前面  
-      
+        
+## 返回值  
+- 函数可以返回多个值  
+```python  
+def get_name_and_age():  
+    name = "Alice"  
+    age = 25  
+    return name, age  
+  
+result = get_name_and_age()  
+print(result)  # 输出: ('Alice', 25)  
+  
+name, age = get_name_and_age()  
+print(name)  # 输出: Alice  
+print(age)   # 输出: 25  
+```  
+  
+```python  
+def get_numbers():  
+    numbers = [1, 2, 3, 4, 5]  
+    evens = [n for n in numbers if n % 2 == 0]  
+    odds = [n for n in numbers if n % 2 != 0]  
+    return evens, odds  
+  
+result = get_numbers()  
+print(result)  # 输出: ([2, 4], [1, 3, 5]) 元组类型  
+  
+evens, odds = get_numbers()  
+print(evens)  # 输出: [2, 4]  
+print(odds)   # 输出: [1, 3, 5]  
+```  
+  
+  
+  
 ## 类型提示 type hint  
 > [typing — Support for type hints](https://docs.python.org/3/library/typing.html)  
 > [How to Use Type Hints for Multiple Return Types in Python](https://realpython.com/python-type-hints-multiple-types/)  
 > [全面理解Python中的类型提示（Type Hints）](https://sikasjc.github.io/2018/07/14/type-hint-in-python/)  
-      
+        
 ```python  
 def greeting(name: str) -> str:  
     return 'Hello ' + name  
 ```  
-      
+        
 ## Lambda 表达式  
 > [4.8.6. Lambda Expressions](https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions)  
 > [第15课：函数使用进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第15课：函数使用进阶.md)  
-      
+        
 ## 文档字符串 Documentation String  
 > [4.8.7. Documentation Strings](https://docs.python.org/3/tutorial/controlflow.html#documentation-strings)  
-      
+        
 在Python中，每个函数都可以包含一个特殊的文档字符串（Documentation String），也被称为docstring。文档字符串是函数定义的一部分，用于提供对函数的说明、描述和文档。  
-      
+        
 文档字符串通常位于代码单元的定义之后，使用三重引号（单引号或双引号）括起来，以便可以跨多行编写。  
-      
+        
 通过访问函数的 __doc__ 属性，可以获取该函数的文档字符串。  
-      
+        
 ```python  
 def my_function():  
     """Do nothing, but document it.  
-      
+        
     No, really, it doesn't do anything.  
     """  
     pass  
-      
+        
 # 打印函数的文档字符串  
 print(my_function.__doc__)  
 ```  
-      
+        
 ## 函数注释 Function Annotations  
 > [4.8.8. Function Annotations](https://docs.python.org/3/tutorial/controlflow.html#function-annotations)  
-      
+        
 Python函数注释（Function Annotations）是一种在函数定义中提供参数和返回值类型信息的方式。  
-      
+        
 ```python  
 def add_numbers(a: int, b: int) -> int:  
     """Add two numbers and return the sum."""  
     return a + b  
-          
+            
 # 显示函数注释信息  
 print(add_numbers.__annotations__)  
 ```  
-      
+        
 output:  
 ```python  
 {'a': <class 'int'>, 'b': <class 'int'>, 'return': <class 'int'>}  
 ```  
-      
+        
 ## 高阶函数  
 > [Python High Order Function](https://www.javatpoint.com/python-high-order-function)  
 > [高阶函数](https://www.liaoxuefeng.com/wiki/1016959663602400/1017328655674400)  
-      
-      
+        
+        
 ## 装饰器  
 > [第16课：函数的高级应用](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第16课：函数的高级应用.md)  
-      
+        
 ## 内置函数  
-      
+        
 ### Sequence Types — list, tuple, range  
 > [Sequence Types — list, tuple, range](https://docs.python.org/3/library/stdtypes.html?highlight=range#sequence-types-list-tuple-range)  
 > [Python3 enumerate() 函数](https://www.runoob.com/python3/python3-func-enumerate.html)  
-      
+        
 ### enumerate  
 > [enumerate](https://docs.python.org/3/library/functions.html#enumerate)  
-      
+        
 ```python  
 seq = ['one', 'two', 'three']  
-      
+        
 for i, element in enumerate(seq):  
     print(i, element)  
 ```  
@@ -784,109 +1046,200 @@ for i, element in enumerate(seq):
 1 two  
 2 three  
 ```  
-      
+        
 ### zip  
 > [zip(*iterables, strict=False)](https://docs.python.org/3/library/functions.html?highlight=zip#zip)  
-      
+        
 ```python  
 list1 = [1, 2, 3]  
 list2 = ['a', 'b', 'c']  
 list3 = [True, False, True]  
-      
+        
 zipped = zip(list1, list2, list3)  
-      
+        
 for item in zipped:  
     print(item)  
 ```  
-      
+        
 输出：  
 ```python  
 (1, 'a', True)  
 (2, 'b', False)  
 (3, 'c', True)  
 ```  
-      
-      
+        
+        
 元素组合过程中定义分隔符：  
 ```python  
 list1 = [1, 2, 3]  
 list2 = ['a', 'b', 'c']  
 list3 = [True, False, True]  
-      
+        
 zipped = zip(list1, list2, list3)  
-      
+        
 result_list = ['\t\t'.join(str(item) for item in items) for items in zipped]  
-      
+        
 print(result_list) # ['1\t\ta\t\tTrue', '2\t\tb\t\tFalse', '3\t\tc\t\tTrue']  
 ```  
-      
+  
+转置矩阵：  
+```python  
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]  
+  
+transposed = zip(*matrix)  
+  
+for row in transposed:  
+    print(row)  
+  
+"""  
+output:   
+(1, 4, 7)  
+(2, 5, 8)  
+(3, 6, 9)  
+"""  
+```  
+*matrix 将 matrix 解压为多个单独的参数，相当于将每个子列表提取出来：  
+```python  
+*matrix => [1, 2, 3], [4, 5, 6], [7, 8, 9]  
+```  
+  
+zip() 函数将每个参数的对应位置进行配对，并返回一个元组的迭代器，其中每个元组包含来自输入参数的相应元素。  
+  
+        
 ### super  
 > [Introduction to the Python super](https://www.pythontutorial.net/python-oop/python-super/)  
+        
       
-    
 通过使用super()函数，我们可以在子类中方便地访问父类的属性和方法，并在需要的情况下进行重写或扩展  
 ```python  
 class ParentClass:  
     def __init__(self):  
         self.value = 5  
-    
+      
     def some_method(self):  
         print("父类方法被调用")  
-    
+      
 class ChildClass(ParentClass):  
     def __init__(self):  
         super().__init__()  # 调用父类的构造函数  
         self.child_value = 10  
-    
+      
     def some_method(self):  
         super().some_method()  # 调用父类的方法  
         print("子类方法被调用")  
-    
+      
 # 创建子类对象  
 child = ChildClass()  
-    
+      
 # 调用子类方法  
 child.some_method()  
-    
-    
+      
+      
 # output  
 # 父类方法被调用  
 # 子类方法被调用  
 ```  
-      
+        
 ###  type 和 isinstance  
 > [Difference between type and isinstance](https://python-course.eu/oop/inheritance.php)  
-      
+        
 `isinstance` returns True if we compare an object either with the class it belongs to or with the superclass. Whereas the equality operator only returns True, if we compare an object with its own class.  
-    
+      
 ```python  
 x = Robot("Marvin")  
 y = PhysicianRobot("James")  
-    
+      
 print(isinstance(x, Robot), isinstance(y, Robot)) # True True  
 print(type(y) == Robot, type(y) == PhysicianRobot)  # False True  
 ```  
-    
+      
+### id 获取内存地址  
+```python  
+c1 = ['r', 'b']  
+c2 = c1  
+print(id(c1), id(c2))  
+1999885099584 1999885099584  
+```  
+  
+# 包 Packages  
+> [6.4. Packages](https://docs.python.org/3/tutorial/modules.html#packages)  
+> [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=78&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
+> [31. Packages](https://python-course.eu/python-tutorial/packages.php)  
+        
+        
+Packages are a way of structuring Python’s module namespace by using “dotted module names”.  
+        
+  
+在 Python 中，模块（Module）和包（Package）是组织和管理代码的两个重要概念。  
+  
+**模块（Module）**指的是一个包含 Python 代码的文件。一个模块可以包含函数、类、变量和可执行的代码，并提供一组相关的功能。模块的文件名通常以 `.py` 扩展名结尾。通过使用 `import` 语句，可以在其他 Python 脚本中引入模块，并使用模块中定义的函数、类和变量。  
+  
+例如，假设我们有一个名为 `math_utils.py` 的模块文件，其中定义了一些数学相关的函数：  
+  
+```python  
+# math_utils.py  
+  
+def add(x, y):  
+    return x + y  
+  
+def subtract(x, y):  
+    return x - y  
+```  
+  
+在另一个 Python 脚本中，我们可以通过 `import` 语句引入该模块，并使用其中定义的函数：  
+  
+```python  
+import math_utils  
+  
+result = math_utils.add(3, 4)  
+print(result)  # 输出: 7  
+```  
+  
+**包（Package）**则是一种用于组织模块的目录结构。包是一个包含了多个模块的目录，它可以有多层嵌套的子目录。包的根目录通常包含一个特殊的文件 `__init__.py`，用于标识该目录是一个包。包可以让我们更好地组织和管理模块，并提供命名空间的支持。  
+  
+例如，我们可以创建一个名为 `my_package` 的包，其中包含了两个模块 `module1.py` 和 `module2.py`：  
+  
+```  
+my_package/  
+    __init__.py  
+    module1.py  
+    module2.py  
+```  
+  
+在其他 Python 脚本中，可以使用 `import` 语句来引入包和其中的模块：  
+  
+```python  
+import my_package.module1  
+  
+result = my_package.module1.add(3, 4)  
+print(result)  # 输出: 7  
+```  
+  
+可以看到，包提供了一种更高级的组织方式，可以将相关的模块组织在一起，并使用点号 `.` 来访问子模块。这有助于避免模块名称冲突，并提供了更好的命名空间管理。  
+  
+总结来说，模块是一个包含 Python 代码的文件，而包是一个包含多个模块的目录结构。模块提供了一组相关的函数、类和变量，而包提供了一种更好地组织和管理模块的方式。  
+  
+  
 # 模块  
 > [第13课：函数和模块](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第13课：函数和模块.md)  
 > [6. Modules](https://docs.python.org/3/tutorial/modules.html#)  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=77&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-      
-      
+        
+        
 A module is a file containing Python definitions and statements. The file name is the module name with the suffix .py appended. Within a module, the module’s name (as a string) is available as the value of the global variable __name__.  
-      
-      
+        
+        
 例如一个模块中有下面两个函数：  
 ```python  
 # Fibonacci numbers module  
-      
+        
 def fib(n):    # write Fibonacci series up to n  
     a, b = 0, 1  
     while a < n:  
         print(a, end=' ')  
         a, b = b, a+b  
     print()  
-      
+        
 def fib2(n):   # return Fibonacci series up to n  
     result = []  
     a, b = 0, 1  
@@ -895,12 +1248,12 @@ def fib2(n):   # return Fibonacci series up to n
         a, b = b, a+b  
     return result  
 ```  
-      
-      
+        
+        
 在另一个模块中使用上述模块的函数：  
 ```python  
 import fibo  
-      
+        
 fibo.fib(1000)  
 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987  
 fibo.fib2(100)  
@@ -908,54 +1261,47 @@ fibo.fib2(100)
 fibo.__name__  
 'fibo'  
 ```  
-      
+        
 或者导入模块中特定的函数：  
 ```python  
 from fibo import fib, fib2  
 fib(500)  
 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377  
 ```  
-      
+        
 也可为模块取别名：  
 ```python  
 import fibo as fib  
 fib.fib(500)  
 ```  
-      
+        
 为模块中的函数取别名：  
 ```python  
 from fibo import fib as fibonacci  
 fibonacci(500)  
 ```  
-      
+        
 当前模块的名字 `__name__` 值为 `__main__`  
 ```python  
 if __name__ == "__main__":  
     import sys  
     fib(int(sys.argv[1]))  
 ```  
-      
+        
 ## 模块搜索路径  
 > [6.1.2. The Module Search Path](https://docs.python.org/3/tutorial/modules.html#the-module-search-path)  
 > [安装第三方模块](https://www.liaoxuefeng.com/wiki/1016959663602400/1017493741106496)  
-      
-## 包 Packages  
-> [6.4. Packages](https://docs.python.org/3/tutorial/modules.html#packages)  
-> [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=78&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-      
-      
-Packages are a way of structuring Python’s module namespace by using “dotted module names”.  
-      
+        
 ## textwrap 文本处理模块  
 > [textwrap](https://docs.python.org/3.12/library/textwrap.html)  
-      
+        
 ### textwrap.dedent 删除每行开头的空格  
 如果书写时每行左侧有缩进，可以用  textwrap.dedent 方法去掉每行开头的空格，见 [textwrap.dedent(text)](https://docs.python.org/3.12/library/textwrap.html#textwrap.dedent)  
-      
-      
+        
+        
 ```python  
 >>> import textwrap  
-      
+        
 >>> str = """\  
 ...     hello  
 ...     world  
@@ -963,27 +1309,27 @@ Packages are a way of structuring Python’s module namespace by using “dotted
 >>> print(str)  
     hello  
     world  
-      
+        
 >>> print(textwrap.dedent(str))  
 hello  
 world  
 ```  
-  
+    
 ### textwrap.indent 为行开头添加前缀  
-  
-  
-  
-      
+    
+    
+    
+        
 ## os 操作系统接口模块  
 > [os— Miscellaneous operating system interfaces](https://docs.python.org/3/library/os.html)  
-      
+        
 ### os.name  
 The following names have currently been registered: 'posix', 'nt', 'java'.  
-      
+        
 ### os.system 执行命令  
 ```python  
 import os  
-      
+        
 if os.name == 'nt':  
     """ windows 操作系统 """  
     os.system('explorer') # 打开资源管理器  
@@ -994,13 +1340,13 @@ elif os.name == 'posix':
     os.system('pwd')  
     os.system('clear') # 清除终端  
 ```  
-    
-### os.path 路径操作  
       
+### os.path 路径操作  
+        
 ## base64 编解码模块  
 > [base64 - Base64编解码模块](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第20课：Python标准库初探.md)  
-    
-    
+      
+      
 ```python  
 >>> s2 = 'hello world'  
 >>> s3 = s2.encode()  
@@ -1009,7 +1355,7 @@ elif os.name == 'posix':
 >>> print(s3)  
 b'hello world'  
 ```  
-    
+      
 ```python  
 >>> import base64  
 >>> s = b'hello world'  
@@ -1021,7 +1367,7 @@ b'hello world'
 >>> print(ds1)  
 b'aGVsbG8gd29ybGQ='  
 ```  
-    
+      
 ```python  
 >>> ds1.decode()  
 'aGVsbG8gd29ybGQ='  
@@ -1035,24 +1381,24 @@ b'hello world'
 >>> base64.b64decode(ds1)  
 b'hello world'  
 ```  
-    
+      
 ## collections 容器数据类型模块  
-    
-    
+      
+      
 ## hashlib 哈希函数模块  
-    
-    
+      
+      
 ## heapq 堆排序模块  
-    
+      
 ## itertool 迭代工具模块  
-    
-    
+      
+      
 ## random 随机数模块  
 > [random — Generate pseudo-random numbers](https://docs.python.org/3/library/random.html)  
-      
+        
 ### random.choice  
 从非空序列中随机选择一个元素作为返回结果  
-      
+        
 ```python  
 >>> import random  
 >>> my_list = [1, 2, 3, 4, 5]  
@@ -1060,72 +1406,72 @@ b'hello world'
 >>> print(random_element)  
 4  
 ```  
-    
+      
 ## uuid UUID 生成模块  
-  
+    
 ## re 正则表达式模块  
 > [第30课：正则表达式的应用](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第30课：正则表达式的应用.md)  
 > [Python Regex](https://www.pythontutorial.net/python-regex/)  
-  
+    
 ### re.match 从开头匹配  
 > [re.match(pattern, string, flags=0)](https://docs.python.org/3/library/re.html?highlight=re%20compile#re.match)  
-  
+    
 ```python  
 def test_match():  
     pattern = r'hello'  
-  
+    
     # 多次用到 pattern 可以用 compile 将其编译为正则表达式对象  
     pattern_obj = re.compile(r'hello')  
-  
+    
     str = """\  
     hello hello helloworld  
     hello hello helloworld  
     world hello helloworld  
     """  
-  
+    
     str1 = 'helloworld hello world'  
     str2 = 'helloworld hello-world'  
-  
+    
     print(f'origin string:', str)  
     print(f'=' * 30)  
-  
+    
     # 不能匹配，因为 match 只从开头匹配，上面的字符串开头有空格  
     # match = re.match(pattern, str)  
     # match = pattern_obj.match(str)  
-  
+    
     # 去掉字符串首尾的空格，只能匹配第一个 hello ，后面的和第二行的均不能匹配  
     # match = re.match(pattern, str.strip())  
-  
+    
     # 去掉每行开头的空格，第二行开头仍不能匹配，match 不匹配多行  
     # match = re.match(pattern, textwrap.dedent(str))  
-  
+    
     # 即使用 MULTILINE 模式，也只能开头的 hello，不能匹配第二行的 hello  
     # match = re.match(pattern, textwrap.dedent(str), re.MULTILINE)  
-  
+    
     # 匹配 hello  
     # match = re.match(pattern, str1)  
-  
+    
     # 无法匹配，因为是 helloworld  
     # match = re.fullmatch(pattern, str1)  
-  
+    
     # search 找到第一个匹配的字符串，即使开头是空格不匹配也可以  
     match = re.search(pattern, str)  
-  
+    
     if match:  
         print('full matched string: ', match.group())  
         for index, group in enumerate(match.groups()):  
             print(f'group {index}: {group}')  
-  
+    
     print(f'=' * 30)  
-  
+    
     # findall 查找所有的匹配的字符串 包括 helloworld 这种  
     match_list = re.findall(pattern, str)  
     # match_list = pattern_obj.findall(str)  
     for s in match_list:  
         print(s)  
-  
+    
     print(f'=' * 30)  
-  
+    
     match_iter = re.finditer(pattern, str)  
     # match_iter = pattern_obj.finditer(str)  
     for s in match_iter:  
@@ -1133,147 +1479,489 @@ def test_match():
         # print(s)  
         print(s.group())  
 ```  
-  
+    
 最后可以知道 flags，和 vim 中类似，见 [re.RegexFlag](https://docs.python.org/3/library/re.html?highlight=re%20compile#re.RegexFlag)  
-  
+    
 常见的有：  
 - re.IGNORECASE 忽略大小写  
 - re.MULTILINE 多行  
-  
-  
+    
+    
 ### re.compile  
 > [re.compile(pattern, flags=0)](https://docs.python.org/3/library/re.html?highlight=re%20compile#re.compile)  
-  
-  
+    
+    
 编译正则表达式模式，将其转换为正则表达式对象。编译后的正则表达式对象可以用于执行各种正则表达式操作，例如匹配、搜索和替换。  
-  
+    
 使用compile()函数的主要好处是可以提高正则表达式的执行效率。当你需要多次使用同一个正则表达式模式时，使用compile()函数首先将其编译成正则表达式对象，然后重复使用该对象，可以避免每次都重新编译正则表达式模式的开销。  
-  
+    
 ```python  
 import re  
-  
+    
 # 编译正则表达式模式  
 pattern = re.compile(r'\b[A-Z]+\b')  
-  
+    
 # 在文本中搜索匹配项  
 text = "HELLO world, HOW are you?"  
 matches = pattern.findall(text)  
-  
+    
 print(matches)  # 输出: ['HELLO', 'HOW']  
 ```  
-  
-### re.search   
+    
+### re.search  
 搜索第一个匹配的字符串  
-  
+    
 ### re.findall  
-  
+    
 ### re.finditer  
-  
+    
 ### re.sub 替换  
 ```python  
 def substitude_str():  
     text = 'two t0w tow TOO'  
     new_str = re.sub('tow|t0w|too', 'two', text, flags=re.IGNORECASE)  
-  
+    
     # two two two two  
     print(new_str)  
 ```  
-  
+    
 ### re.split 拆分字符  
 ```python  
 def split_str():  
     pattern = r'\s+'  # 以一个或多个空白字符作为拆分点  
     str = "Hello   World   of    Python"  
     result = re.split(pattern, str)  
-  
+    
     print("split:")  
     for part in result:  
         print(part)  
 ```  
-  
+    
 # 错误和异常  
 > [8. Errors and Exceptions](https://docs.python.org/3/tutorial/errors.html)  
 > [错误处理](https://www.liaoxuefeng.com/wiki/1016959663602400/1017598873256736)  
-      
-## try  
-      
-## raise  
-      
+> [32. Errors and Exception Handling](https://python-course.eu/python-tutorial/errors-and-exception-handling.php)  
+        
   
-## with  
-> [8.5. The with statement](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)  
-> [Python with 关键字](https://www.runoob.com/python3/python-with.html)  
-  
+## try except  
 ```python  
+try:  
+    file_path = 'nonexistent.txt'  
+    with open(file_path, 'r') as file:  
+        # 读取文件内容  
+        content = file.read()  
+except FileNotFoundError as e:  
+    print(dir(e)) # 打印属性列表  
+    print(e) # 打印了异常对象的字符串表示，包括异常类型和相关的错误信息  
   
+    # 打印了异常对象的参数元组 (2, 'No such file or directory')  
+    errno, strerror = e.args  
+    print(f'error: {errno}; strerror: {strerror}')  
+  
+    print(e.args)  
+    print("File not found:", e.filename)  
+    print("Error message:", e.strerror)  
+    print("File path:", e.filename)  
+    print("Error code:", e.errno)  
 ```  
   
   
-# 面向对象编程  
-> [Object Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php)  
+## try except finally  
+可以增加 finally 语句，不管是否引发异常，finally 块中的代码总是会被执行  
+```python  
+def divide_numbers(a, b):  
+    try:  
+        result = a / b  
+        print("Division result:", result)  
+    except ZeroDivisionError:  
+        print("Error: Division by zero is not allowed.")  
+    finally:  
+        print("Cleanup: This is always executed.")  
+  
+# 示例调用  
+divide_numbers(10, 2)  
+divide_numbers(10, 0)  
+```  
+  
+output:  
+```python  
+Division result: 5.0  
+Cleanup: This is always executed.  
+Error: Division by zero is not allowed.  
+Cleanup: This is always executed.  
+```  
+  
+## try except else  
+```python  
+def divide_numbers(a, b):  
+    try:  
+        result = a / b  
+    except ZeroDivisionError:  
+        print("Error: Division by zero is not allowed.")  
+    else:  
+        print("Division result:", result)  
+  
+# 示例调用  
+divide_numbers(10, 2)  
+divide_numbers(10, 0)  
+```  
+如果没有引发异常，则执行 else 块中的代码  
+  
+output:  
+```python  
+Division result: 5.0  
+Error: Division by zero is not allowed.  
+```  
+  
+## sys.exc_info() 获取异常信息  
+> [sys.exc_info()](https://docs.python.org/3/library/sys.html?highlight=sys%20exec_info#sys.exc_info)  
+  
+sys.exc_info() 返回一个三元组 (type, value, traceback)，其中：  
+- type 是当前异常的类型（一个异常类对象）。  
+- value 是当前异常的实例，即引发的具体异常对象。  
+- traceback 是一个追踪对象，包含了异常的调用栈信息。  
+        
+```python  
+import sys  
+  
+try:  
+    # 代码块，可能会引发异常的代码  
+    a = 10  
+    b = 0  
+    result = a / b  # 这里会触发 ZeroDivisionError 异常  
+except:  
+    # 异常处理块，捕获并处理异常  
+    print("An error occurred:", sys.exc_info()[0])  # 输出异常类型  
+    print("Error details:", sys.exc_info()[1])  # 输出异常信息  
+    print("Traceback details:", sys.exc_info()[2])  # 输出异常的调用栈信息  
+```  
+  
+## raise 自定义异常  
+raise 在 Python 中用于手动引发异常。它允许你在代码中显式地触发异常，以便进行错误处理或控制程序流程。  
+  
+```python  
+class MyCustomException(Exception):  
+    pass  
+  
+def divide_numbers(a, b):  
+    if b == 0:  
+        raise MyCustomException("Division by zero is not allowed.")  
+    return a / b  
+  
+try:  
+    result = divide_numbers(10, 0)  
+    print("Result:", result)  
+except MyCustomException as e:  
+    print("Custom exception caught:", str(e))  
+  
+# Custom exception caught: Division by zero is not allowed.  
+```  
+  
+```python  
+class MyCustomException(Exception):  
+    def __init__(self, message, error_code):  
+        super().__init__(message)  
+        self.error_code = error_code  
+  
+    def __str__(self):  
+        return f"MyCustomException: {self.args[0]}\nError Code: {self.error_code}"  
+  
+    def additional_action(self):  
+        # 执行其他自定义操作  
+        print("Performing additional action for MyCustomException")  
+  
+  
+def divide_numbers(a, b):  
+    if b == 0:  
+        raise MyCustomException("Division by zero is not allowed.", 1001)  
+    return a / b  
+  
+  
+try:  
+    result = divide_numbers(10, 0)  
+    print("Result:", result)  
+except MyCustomException as e:  
+    print("Custom exception caught:", str(e))  
+    e.additional_action()  
+  
+  
+"""  
+output:  
+Custom exception caught: MyCustomException: Division by zero is not allowed.  
+Error Code: 1001  
+Performing additional action for MyCustomException  
+"""  
+```  
+  
+        
+    
+## with  
+> [8.5. The with statement](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement)  
+> [Python with 关键字](https://www.runoob.com/python3/python-with.html)  
+    
+```python  
+    
+```  
     
     
 # 类  
 > [9. Classes](https://docs.python.org/3/tutorial/classes.html)  
 > [第17课：面向对象编程入门](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第17课：面向对象编程入门.md)  
 > [面向对象编程](https://www.liaoxuefeng.com/wiki/1016959663602400/1017495723838528)  
-      
+> [Object Oriented Programming](https://python-course.eu/oop/object-oriented-programming.php)  
+  
+  
+## Attributes   
+> [Attributes](https://python-course.eu/oop/object-oriented-programming.php)  
+  
+  
+- Attributes are created inside a class definition.  
+- 默认属性可以动态创建  
+```python  
+class MyClass:  
+    def __init__(self, x, y):  
+        self.x = x  
+        self.y = y  
+  
+    def add(self):  
+        return self.x + self.y  
+  
+    def subtract(self):  
+        return self.x - self.y  
+  
+# 创建对象  
+obj = MyClass(5, 3)  
+obj.z = 6 # 动态添加属性  
+  
+# 打印对象属性  
+# {'x': 5, 'y': 3, 'z': 6}  
+print(obj.__dict__)  
+```  
+  
+  
 ## 访问限制  
 > [访问限制](https://www.liaoxuefeng.com/wiki/1016959663602400/1017496679217440)  
 > [Python - Public, Protected, Private Members](https://www.tutorialsteacher.com/python/public-private-protected-modifiers)  
 > [Public, - Protected-, and Private Attributes](https://python-course.eu/oop/object-oriented-programming.php)  
-      
-      
+        
+在 Python 中，属性和方法的访问控制可以通过命名约定来实现，而没有严格的访问修饰符（如 public、protected、private）。  
+  
+- public  
+类内部和外部都可以直接访问  
+```python  
+class MyClass:  
+    def __init__(self):  
+        self.public_attr = 10  
+  
+    def public_method(self):  
+        return "This is a public method."  
+  
+obj = MyClass()  
+print(obj.public_attr)        # 输出: 10  
+print(obj.public_method())    # 输出: This is a public method.  
+```  
+- protected  
+Protected attributes should not be used outside the class definition, unless inside a subclass definition.  
+但并没有定义的那么严格，如果想访问还是可以。  
+以单个下划线 _ 开头的属性和方法被视为受保护。  
+```python  
+class MyClass:  
+    def __init__(self):  
+        self._protected_attr = 20  
+  
+    def _protected_method(self):  
+        return "This is a protected method."  
+  
+obj = MyClass()  
+print(obj._protected_attr)         # 输出: 20  
+print(obj._protected_method())     # 输出: This is a protected method.  
+```  
+- private  
+定义：私有属性和方法只能在类的内部直接访问，无法在类的外部直接访问。  
+实际要外部访问也可以  
+以双下划线 __ 开头的属性和方法被视为私有。  
+  
+```python  
+class MyClass:  
+    def __init__(self):  
+        self.__private_attr = 30  
+  
+    def __private_method(self):  
+        return "This is a private method."  
+  
+obj = MyClass()  
+  
+# 在类的外部访问私有属性和方法会引发 AttributeError 异常  
+print(obj.__private_attr)            # 抛出异常  
+print(obj.__private_method())        # 抛出异常  
+  
+# 通过名称改变的方式间接访问私有属性和方法  
+print(obj._MyClass__private_attr)    # 输出: 30  
+print(obj._MyClass__private_method())# 输出: This is a private method.  
+```  
+        
+## Properties  
+> [3. Properties vs. Getters and Setters](https://python-course.eu/oop/properties-vs-getters-and-setters.php)  
+  
+  
+### __getattr__ 和 __setattr__ 方法自定义属性  
+__getattr__ 方法会在属性不存在时被调用  
+```python  
+class Robot:  
+    def __init__(self, name):  
+        self.name = name  
+  
+    def __getattr__(self, name):  
+        if name == 'color':  
+            return 'red'  
+        else:  
+            raise AttributeError(f"'Robot' object has no attribute '{name}'")  
+  
+robot = Robot("Marvin")  
+print(robot.name)  # 输出: Marvin  
+print(robot.color)  # 输出: red  
+print(robot.weight)  # 会抛出 AttributeError: 'Robot' object has no attribute 'weight'  
+```  
+  
+__setattr__ 方法会在属性被设置时被调用  
+```python  
+class Robot:  
+    def __init__(self, name):  
+        self.__dict__['name'] = name  
+  
+    def __setattr__(self, name, value):  
+        if name == 'name':  
+            if value in ['Henry', 'Oscar']:  
+                raise ValueError('Not a decent Robot name')  
+        self.__dict__[name] = value  
+  
+robot = Robot("Marvin")  
+print(robot.name)  # 输出: Marvin  
+  
+robot.name = "Henry"  # 会抛出 ValueError: Not a decent Robot name  
+```  
+  
+__getattr__ 和 __setattr__ 方法适用于对整个类的所有属性进行统一的访问和设置行为的自定义，而装饰器适用于对特定的属性或方法进行个别的访问和设置行为的自定义。  
+  
+  
+## @property 属性装饰器  
+> [Python Property Decorator](https://www.pythontutorial.net/python-oop/python-property-decorator/)  
+> [第18课：面向对象编程进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第18课：面向对象编程进阶.md)  
+> [使用@property](https://www.liaoxuefeng.com/wiki/1016959663602400/1017502538658208)  
+        
+        
+@property 是一个属性装饰器，在 Python 中用于将一个方法转换为只读属性。通过使用 @property，我们可以在访问类的属性时，像访问普通属性一样，直接调用方法而不需要使用括号。  
+  
+可以使用 @property 装饰器结合另一个装饰器 @<property_name>.setter 来定义一个 setter 方法，以实现属性的写入操作。  
+  
+```python  
+class Circle:  
+    def __init__(self, radius):  
+        self._radius = radius  
+  
+    @property  
+    def radius(self):  
+        return self._radius  
+  
+    # 设置属性 radius   
+    @radius.setter  
+    def radius(self, value):  
+        if value > 0:  
+            self._radius = value  
+        else:  
+            raise ValueError("Radius must be a positive value.")  
+  
+    @property  
+    def area(self):  
+        return 3.14 * self._radius ** 2  
+  
+circle = Circle(5)  
+print(circle.radius)     # 输出: 5  
+print(circle.area)       # 输出: 78.5  
+  
+circle.radius = 7        # 设置半径的值  
+print(circle.radius)     # 输出: 7  
+print(circle.area)       # 输出: 153.86  
+```  
+添加了一个 radius() 的 setter 方法，并使用 @radius.setter 装饰器将它与 radius() 属性关联起来。现在，我们可以通过 circle.radius = 7 来设置半径的值，并且该值会被存储在 _radius 属性中。  
+  
+  
+```python  
+class OurClass:  
+  
+    def __init__(self, a):  
+        self.OurAtt = a  
+  
+    @property  
+    def OurAtt(self):  
+        return self.__OurAtt  
+  
+    @OurAtt.setter  
+    def OurAtt(self, val):  
+        if val < 0:  
+            self.__OurAtt = 0  
+        elif val > 1000:  
+            self.__OurAtt = 1000  
+        else:  
+            self.__OurAtt = val  
+  
+  
+x = OurClass(10)  
+x1 = OurClass(-10)  
+x2 = OurClass(10000)  
+print(x.OurAtt) # 10  
+print(x1.OurAtt) # 0  
+print(x2.OurAtt) # 1000  
+```  
+  
+## 自定义 property 类  
+> [6. Implementing a Custom Property Class](https://python-course.eu/oop/implementing-a-custom-property-class.php)  
+  
+  
 ## 类变量和实例变量  
 > [python class variables](https://pynative.com/python-class-variables/)  
 > [9.3.5. Class and Instance Variables](https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables)  
 > [Class Variables, Attributes, and Properties](https://diveintopython.org/learn/classes/variables)  
-      
-      
+        
+        
 类变量可以直接通过类名访问，而不用创建实例  
 ```python  
 class MyClass:  
     class_var = 10  # 类变量  
-      
+        
     def __init__(self, instance_var):  
         self.instance_var = instance_var  # 实例变量  
-      
-      
+        
+        
 # 通过类名访问类变量  
 print(MyClass.class_var)  # 输出: 10  
-      
+        
 # 创建类的实例  
 obj1 = MyClass(20)  
 obj2 = MyClass(30)  
-      
+        
 # 访问实例变量  
 print(obj1.instance_var)  # 输出: 20  
 print(obj2.instance_var)  # 输出: 30  
-      
+        
 # 类变量是共享的，对类变量的修改会影响所有实例  
 MyClass.class_var = 50  
 print(obj1.class_var)  # 输出: 50  
 print(obj2.class_var)  # 输出: 50  
-      
+        
 # 实例变量是每个实例独立拥有的  
 obj1.instance_var = 100  
 print(obj1.instance_var)  # 输出: 100  
 print(obj2.instance_var)  # 输出: 30  
 ```  
-      
-## @property 属性装饰器  
-> [Python Property Decorator](https://www.pythontutorial.net/python-oop/python-property-decorator/)  
-> [第18课：面向对象编程进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第18课：面向对象编程进阶.md)  
-> [使用@property](https://www.liaoxuefeng.com/wiki/1016959663602400/1017502538658208)  
-      
-      
-      
-      
+        
+        
+        
 ## 静态方法  
 > [Python Static Method Explained With Examples](https://pynative.com/python-static-method/)  
 > [第18课：面向对象编程进阶](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第18课：面向对象编程进阶.md)  
-      
-      
+        
+        
 - 静态方法是一种不依赖于类实例的方法，因此它可以在不创建类实例的情况下直接通过类来调用  
 - 如果一个类中某个方法的实现与类无关，可以用 @staticmethod 装饰器使其称为静态方法，这样也能节约空间  
 - 一个静态方法调用另一个静态方法  
@@ -1282,89 +1970,223 @@ class MyClass:
     @staticmethod  
     def static_method1():  
         print("This is static_method1")  
-            
+              
         # Calling static_method2 from static_method1  
         MyClass.static_method2()  
-        
+          
     @staticmethod  
     def static_method2():  
         print("This is static_method2")  
-            
-    
+              
+      
 # Calling static_method1 directly from the class  
 MyClass.static_method1()  
-    
+      
 # output  
 # This is static_method1  
 # This is static_method2  
 ```  
-    
-    
-    
       
 ## 类方法 @classmethod  
 > [Meaning of @classmethod and @staticmethod for beginner [duplicate]](https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner)  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=92&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
+> [Class Methods](https://python-course.eu/oop/class-instance-attributes.php)  
+  
+Like static methods class methods are not bound to instances, but unlike static methods class methods are bound to a class.   
+        
+  
+## dataclasses - Data Classes  
+> [dataclasses — Data Classes](https://docs.python.org/3/library/dataclasses.html?highlight=dataclass)  
+> [5. Dataclasses In Python](https://python-course.eu/oop/dataclasses-in-python.php)  
+  
       
-    
+数据类是一种用于存储数据的类，它自动为我们生成常见的方法，如初始化方法、相等性判断方法、字符串表示方法等。  
+  
+当使用 @dataclass 装饰器时，可以简化数据类（data class）的定义。  
+  
+```python  
+from dataclasses import dataclass  
+  
+@dataclass  
+class Person:  
+    name: str  
+    age: int  
+    city: str  
+  
+    def greet(self):  
+        return f"Hello, my name is {self.name} and I live in {self.city}."  
+  
+person = Person("Alice", 25, "New York")  
+print(person)  # 输出: Person(name='Alice', age=25, city='New York')  
+print(person.greet())  # 输出: Hello, my name is Alice and I live in New York.  
+```  
+  
+@dataclass 装饰器为我们自动生成了以下方法：  
+- __init__：用于初始化对象的属性。  
+- __repr__：返回对象的字符串表示，通常用于调试和开发。  
+  
+## Immutable Classes  
+> [4. Creating Immutable Classes In Python](https://python-course.eu/oop/creating-immutable-classes-in-python.php)  
+  
+  
+### Classes with Getters and no Setters  
+```python  
+class ImmutableRobot:  
+    def __init__(self, name, brandname):  
+        self.__name = name  
+        self.__brandname = brandname  
+  
+    @property  
+    def name(self):  
+        return self.__name  
+  
+    @property  
+    def brandname(self):  
+        return self.__brandname  
+  
+robot = ImmutableRobot(name="RoboX", brandname="TechBot")  
+print(robot.name)  
+print(robot.brandname)   
+  
+try:  
+    robot.name = "RoboY"  # 报错  
+except AttributeError as e:  
+    print(e)  
+  
+try:  
+    robot.brandname = "NewTechBot"  # 报错  
+except AttributeError as e:  
+    print(e)   
+```  
+  
+output:  
+```python  
+RoboX  
+TechBot  
+property 'name' of 'ImmutableRobot' object has no setter  
+property 'brandname' of 'ImmutableRobot' object has no setter  
+```  
+  
+无法设置属性的值  
+  
+### @dataclass(frozen=True)  
+当在 @dataclass 装饰器中设置 frozen=True 时，生成的数据类将变为"冻结"的数据类，即不可变数据类。  
+  
+```python  
+from dataclasses import dataclass  
+  
+@dataclass(frozen=True)  
+class Point:  
+    x: int  
+    y: int  
+  
+point = Point(2, 3)  
+  
+print(point)  # 输出：Point(x=2, y=3)  
+  
+# 尝试修改属性的值  
+point.x = 5  # 会抛出 AttributeError: can't set attribute  
+```  
+  
+### 使用 namedtuple   
+[collections.namedtuple(typename, field_names, *, rename=False, defaults=None, module=None)](https://docs.python.org/3/library/collections.html?highlight=namedtuple#collections.namedtuple)  
+  
+  
+Returns a new tuple subclass named typename.   
+The new subclass is used to create tuple-like objects that have fields accessible by attribute lookup as well as being indexable and iterable.   
+  
+创建的类其属性不能修改  
+  
+namedtuple is more lightweight, while dataclass offers additional features and customization options.  
+  
+  
+## __slots__ 属性防止动态添加属性  
+__slots__ 是 Python 中用于限制实例属性的特殊属性。通过在类中定义 __slots__ 属性，可以明确指定实例可以拥有的属性，从而有效地限制实例的属性数量。  
+  
+可以修改现有属性，但不能动态添加属性  
+  
+```python  
+class Person:  
+    __slots__ = ['name', 'age']  
+  
+    def __init__(self, name, age):  
+        self.name = name  
+        self.age = age  
+  
+# 创建 Person 类的实例  
+person = Person('John', 25)  
+  
+# 访问实例的属性  
+print(person.name)  # 输出: John  
+print(person.age)   # 输出: 25  
+  
+# 尝试添加新的属性（会引发 AttributeError）  
+person.address = 'USA'  
+```  
+  
 ## 继承 inheritance  
 > [](https://python-course.eu/oop/inheritance.php)  
-    
-    
       
       
+        
+        
 ## 抽象基类 ABC  
 > [19. The 'ABC' of Abstract Base Classes](https://python-course.eu/oop/the-abc-of-abstract-base-classes.php)  
 > 例子：[工资结算系统](https://www.bilibili.com/video/BV1FT4y1R7sz/?p=101&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-    
-    
+      
+      
 - 类似 C++ 中的抽象基类，需要导入 abc(abstract base class) 模块  
 - Abstract classes are classes that contain one or more abstract methods.  
 - An abstract method is a method that is declared, but contains no implementation.  
 - Abstract classes cannot be instantiated, and require subclasses to provide implementations for the abstract methods.  
 - 抽象方法用装饰器 @abstractmethod，抽象不像 C++ 中的纯虚函数，python 中的 abstract method 可以实现，但子子类中必须 override，子类中可以用 super() 方法来调用抽象基类的抽象方法  
-    
-    
+      
+      
 ## 枚举类  
 > [Build Enumerations of Constants With Python's Enum](https://realpython.com/python-enum/)  
-      
+        
 ## 元类 metaclass  
 > [使用元类](https://www.liaoxuefeng.com/wiki/1016959663602400/1017592449371072)  
-      
-      
+        
+        
 ## 魔术方法 Magic Methods  
 > [7. Magic Methods](https://python-course.eu/oop/magic-methods.php)  
 > [魔术方法大全（一）——基础篇](https://www.bilibili.com/video/BV1b84y1e7hG/?spm_id_from=333.999.0.0&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
-    
-    
-### __new__ 和 __init__  
       
+      
+### __new__ 和 __init__  
+> [The __init__ Method](https://python-course.eu/oop/object-oriented-programming.php)  
+  
+  
+  
+  
+        
 ### __str__ 和 __repr__  
 > [How To Use the __str__() and __repr__() Methods in Python](https://www.digitalocean.com/community/tutorials/python-str-repr-functions)  
 > [Easy Syntax in Python : __STR__ Vs __REPR__ Functions](https://www.youtube.com/watch?v=uKmfhJA76Y4&ab_channel=BekBrace)  
 > [__str__ and __repr__ Methods](https://python-course.eu/oop/object-oriented-programming.php)  
-      
+        
 ```python  
 class Point:  
     def __init__(self, x, y):  
         self.x = x  
         self.y = y  
-      
+        
     def __str__(self):  
         return f"Point({self.x}, {self.y})"  
-      
+        
     def __repr__(self):  
         return f"Point(x={self.x}, y={self.y})"  
-      
+        
 point = Point(3, 4)  
-      
+        
 print(point)  # Output: Point(3, 4)  
 print(str(point))  # Output: Point(3, 4)  
-      
+        
 print(repr(point))  # Output: Point(x=3, y=4)  
 print(point.__repr__())  # Output: Point(x=3, y=4)  
 ```  
-  
+    
 ```python  
 >>> a = 'hello\t\tworld'  
 >>> print(a)  
@@ -1374,68 +2196,209 @@ hello           world
 >>> print(str(a))  
 hello           world  
 ```  
+    
+### __dict__ 对象属性  
+```python  
+class MyClass:  
+    def __init__(self, x, y):  
+        self.x = x  
+        self.y = y  
   
-      
+    def add(self):  
+        return self.x + self.y  
+  
+    def subtract(self):  
+        return self.x - self.y  
+  
+# 创建对象  
+obj = MyClass(5, 3)  
+obj.z = 6 # 动态添加属性  
+  
+# 打印对象属性 字典  
+# {'x': 5, 'y': 3, 'z': 6}  
+print(obj.__dict__)  
+```  
+  
+### __del__ 析构方法  
+> [object.__del__(self)](https://docs.python.org/3/reference/datamodel.html?highlight=__del__#object.__del__)  
+  
+python 中没有析构器 destructor，有 __del__ 方法，用于定义对象被销毁（垃圾回收）时执行的操作。它是一个析构方法，会在对象被垃圾回收前自动调用。  
+  
+It is called when the instance is about to be destroyed and if there is no other reference to this instance. If a base class has a __del__() method, the derived class's __del__() method, if any, must explicitly call it to ensure proper deletion of the base class part of the instance.  
+  
+```python  
+class MyClass:  
+    def __init__(self, name):  
+        self.name = name  
+  
+    def __del__(self):  
+        print(f"Deleting {self.name} object")  
+  
+# 创建对象  
+obj1 = MyClass("Object 1")  
+obj2 = MyClass("Object 2")  
+  
+# 对象引用计数减少  
+del obj1  
+  
+# 输出:  
+# Deleting Object 1 object  
+```  
+__del__ 方法的调用时机是不确定的，它依赖于垃圾回收机制的实现和对象的引用计数。在一些情况下，对象可能在不可预测的时间被垃圾回收。  
+        
 ## 运算符重载  
 > [operator — Standard operators as functions](https://docs.python.org/3/library/operator.html)  
 > [How to implement __lt__ in Python?](https://pencilprogrammer.com/__lt__-python/)  
-      
-      
+        
+        
 ```python  
 class Point:  
     def __init__(self, x, y):  
         self.x = x  
         self.y = y  
-      
+        
     def __lt__(self, other):  
         return self.x < other.x and self.y < other.y  
-      
+        
 # 创建两个 Point 对象  
 point1 = Point(1, 2)  
 point2 = Point(3, 4)  
-      
+        
 # 使用 < 运算符比较两个对象  
 print(point1 < point2)  # 输出: True  
 ```  
+        
       
-    
 # 文件读写  
 > [第21课：文件读写和异常处理](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第21课：文件读写和异常处理.md)  
 > [29. File Management](https://python-course.eu/python-tutorial/file-management.php)  
+      
     
+## shelve 模块持久化存储数据  
+> [shelve — Python object persistence](https://docs.python.org/3/library/shelve.html?highlight=shelve#module-shelve)  
+  
+  
+shelve 模块是 Python 标准库中的一个模块，用于提供简单的持久化存储功能。它可以将对象以键值对的形式存储在磁盘上的文件中，并允许后续对这些对象进行读取和修改。  
+  
+```python  
+import shelve  
+  
+# 创建或打开一个 shelve 文件  
+my_shelf = shelve.open('mydata')  
+  
+# 存储数据 使用类似于字典的方式将数据存储到 shelve 文件中，其中键是字符串，值可以是任意 Python 对象  
+my_shelf['name'] = 'Alice'  
+my_shelf['age'] = 25  
+my_shelf['favorite_fruit'] = ['apple', 'banana', 'orange']  
+  
+# 读取数据  
+name = my_shelf['name']  
+age = my_shelf['age']  
+favorite_fruit = my_shelf['favorite_fruit']  
+  
+print(name)  # 输出: Alice  
+print(age)  # 输出: 25  
+print(favorite_fruit)  # 输出: ['apple', 'banana', 'orange']  
+  
+# 修改数据  
+my_shelf['age'] = 26  
+  
+# 删除数据  
+del my_shelf['favorite_fruit']  
+  
+# 关闭 shelve 文件  
+my_shelf.close()  
+```  
+  
+shelve.open() 创建了一个文件是后缀为 .dat 的二进制文件（Binary File），用于存储数据的数据文件；一个为 .dir 后缀的索引文件，文本文件，记录键的名称和对应数据在 .dat 文件中的偏移量等信息；还有一个 .bak 备份文件，备份 .dir 内容  
+  
+在内部，shelve 模块使用 Python 的 pickle 模块来序列化和反序列化对象，并将其存储在文件中。pickle 模块将对象转换为字节流，而 shelve 则使用这些字节流来保存键值对数据。  
   
 ## CSV 文件读写  
 > [csv — CSV File Reading and Writing](https://docs.python.org/3/library/csv.html)  
-  
+    
 更专业数据分析用 pandas 库  
-  
+    
 ## word 文件操作  
 > [第26课：用Python操作Word和PowerPoint](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第26课：用Python操作Word文件和PowerPoint.md)  
-  
-  
+    
+    
 ## pdf 文件操作  
 > [第27课：用Python操作PDF文件](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第27课：用Python操作PDF文件.md)  
-  
-  
+    
+    
 ## 发送邮件  
-  
-  
-  
-  
+    
+    
+    
+    
 # 数据分析  
 > [Numerical Programming with Python](https://python-course.eu/numerical-programming/)  
+    
   
+## math 模块  
   
-# python 爬虫  
-> 微信公众号内容：[learn_python3_spider](https://github.com/wistbean/learn_python3_spider?tab=readme-ov-file)  
+## nump 模块  
+numpy（Numerical Python）是一个用于进行科学计算的强大的 Python 库。它提供了高性能的多维数组对象（ndarray）以及一系列用于操作这些数组的函数。  
   
+```python  
+import numpy as np  
+  
+# 创建一个一维数组  
+arr1d = np.array([1, 2, 3, 4, 5])  
+print(arr1d)  # 输出: [1 2 3 4 5]  
+  
+# 创建一个二维数组  
+arr2d = np.array([[1, 2, 3], [4, 5, 6]])  
+print(arr2d)  
+# 输出:  
+# [[1 2 3]  
+#  [4 5 6]]  
+  
+# 使用内置函数创建数组  
+zeros_arr = np.zeros((3, 4))  # 创建一个元素全为零的 3x4 数组  
+ones_arr = np.ones((2, 3))  # 创建一个元素全为一的 2x3 数组  
+random_arr = np.random.random((2, 2))  # 创建一个随机值的 2x2 数组  
+  
+# 数组运算  
+arr_a = np.array([1, 2, 3])  
+arr_b = np.array([4, 5, 6])  
+result = arr_a + arr_b  # 数组相加  
+print(result)  # 输出: [5 7 9]  
+  
+# 数组切片  
+arr = np.array([1, 2, 3, 4, 5])  
+print(arr[2:4])  # 输出: [3 4]  
+  
+# 数组形状操作  
+arr = np.array([[1, 2, 3], [4, 5, 6]])  
+print(arr.shape)  # 输出: (2, 3)  
+reshaped_arr = arr.reshape((3, 2))  # 重塑数组形状  
+print(reshaped_arr)  
+# 输出:  
+# [[1 2]  
+#  [3 4]  
+#  [5 6]]  
+  
+# 数组统计计算  
+arr = np.array([1, 2, 3, 4, 5])  
+print(np.mean(arr))  # 计算数组的平均值  
+print(np.max(arr))  # 计算数组的最大值  
+print(np.min(arr))  # 计算数组的最小值  
+print(np.sum(arr))  # 计算数组的总和  
+```  
   
     
-# 代码示例  
+# python 爬虫  
+> 微信公众号内容：[learn_python3_spider](https://github.com/wistbean/learn_python3_spider?tab=readme-ov-file)  
+    
+    
       
+# 代码示例  
+        
 ## 21 点扑克牌游戏  
 > 代码：[code](../code/card_game/blackjack.py)  
-      
+        
 解释器： python3.10.6  
 效果：  
 ![](img/2024-01-13-09-51-27.png)  
