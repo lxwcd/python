@@ -8,4 +8,4 @@
 import PyOfficeRobot
 
 # 智能聊天
-PyOfficeRobot.chat.chat_robot(who='慧慧')
+PyOfficeRobot.chat.chat_robot(who='wechat_name')

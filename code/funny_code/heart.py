@@ -11,7 +11,7 @@ from math import sin, cos, pi, log
 from tkinter import *
 
 CANVAS_WIDTH = 840  # 画布的宽
-CANVAS_HEIGHT = 680  # 画布的高
+CANVAS_HEIGHT = 680 # 画布的高
 CANVAS_CENTER_X = CANVAS_WIDTH / 2  # 画布中心的X轴坐标
 CANVAS_CENTER_Y = CANVAS_HEIGHT / 2  # 画布中心的Y轴坐标
 IMAGE_ENLARGE = 11  # 放大比例
@@ -28,7 +28,7 @@ HEART_COLORS = {
 }
 
 HEART_COLOR = random.choice(list(HEART_COLORS.values()))
-TEXT = "O(∩_∩)O 😄 鲁小慧是富婆 😄 O(∩_∩)O"
+TEXT = "O(∩_∩)O 😄 新年快乐 😄 O(∩_∩)O"
 
 
 def heart_function(t, shrink_ratio: float = IMAGE_ENLARGE):
