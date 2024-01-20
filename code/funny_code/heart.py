@@ -28,7 +28,7 @@ HEART_COLORS = {
 }
 
 HEART_COLOR = random.choice(list(HEART_COLORS.values()))
-TEXT = "新年快乐"
+TEXT = "O(∩_∩)O 😄 鲁小慧是富婆 😄 O(∩_∩)O"
 
 
 def heart_function(t, shrink_ratio: float = IMAGE_ENLARGE):

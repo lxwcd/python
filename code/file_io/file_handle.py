@@ -29,6 +29,7 @@ with open("./test_files/file_definition.txt", mode="w") as f:
     f.write(textwrap.dedent(definition))  # remove leading whitespace from every line
 
 with open("./test_files/file_definition.txt", mode='r', encoding='utf-8') as f:
+    line = f.readline().strip()
     # s = f.read()
     # print(type(s))
     # print(s)
@@ -37,9 +38,10 @@ with open("./test_files/file_definition.txt", mode='r', encoding='utf-8') as f:
     #     str += line
     #
     # print(str)
-    for line in f:
-        print(line.strip())  # remove leading and trailing whitespace
+    # for line in f:
+    #     print(line.strip())  # remove leading and trailing whitespace
 
+print(line)
 # 获取网页文件
 import requests
 
