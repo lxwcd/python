@@ -54,6 +54,12 @@ pip config set global.index-url https://pypi.doubanio.com/simple
 |代码格式化|Ctrl+Alt+L||  
 |文件格式化|Ctrl+Alt+Shift+L||  
 |搜索函数|Ctrl+F12||  
+|查看文档说明|Ctrl+Q||  
+|查看函数定义|Ctrl+Shift+I||  
+|高亮文档中全部选中的单词|Ctrl+Shift+F7||  
+|查看文档中下一个高亮的错误|F2||  
+|修复错误|Alt+Enter||  
+|查看警告描述|Ctrl+F1||  
 |surround code|Ctrl+Alt+T||  
 |unwrap|Ctrl+Shift+Delete||  
 |collapse code|Ctrl -||  
@@ -470,18 +476,16 @@ print(dictionary)
 ```  
     
 - 集合中的元素要是 hashable 对象，元素是不可变对象  
-下面写法出错，不能以列表作为元素  
+下面写法出错，不能以列表作为元素：  
 ```python  
 >>> cities = set((["Python","Perl"], ["Paris", "Berlin", "London"]))  
 ```  
-    
-能以元组作为元素  
+能以元组作为元素：  
 ```python  
 >>> cities = set((("Python","Perl"), ("Paris", "Berlin", "London")))  
 ```  
     
 - 集合中元素要为 immutable object，但集合本身是 mutable，可以添加和删除元素等  
-    
 ```python  
 fruits = {"apple", "banana"}  
 fruits.update(["orange", "mango"])  
@@ -493,11 +497,19 @@ print(fruits)  # 输出: {'apple', 'banana', 'orange', 'mango'}
 - 注意集合赋值和 copy 的区别  
     
 - 注意 remove 和 discard 的区别  
+discard 删除集合中的元素，如果元素不在集合中，不会报错。
+remove 删除集合中的元素，如果元素不在集合中，会报错。
     
 - 注意 add 和 update 区别  
-    
-    
-    
+add用于添加单个元素，而update用于添加多个元素。    
+```python
+my_set = {1, 2, 3}
+my_set.update([3, 4, 5])
+print(my_set)  # 输出: {1, 2, 3, 4, 5}
+
+my_set.update({5, 6, 7})
+print(my_set)  # 输出: {1, 2, 3, 4, 5, 6, 7}
+```
     
 # 切片  
 > [切片](https://www.liaoxuefeng.com/wiki/1016959663602400/1017269965565856)  
@@ -545,7 +557,6 @@ sliced_tuple = my_tuple[1:4]
 print(sliced_tuple)  # 输出: (2, 3, 4)  
 ```  
           
-          
 # 列表生成式  
 > [列表生成式](https://www.liaoxuefeng.com/wiki/1016959663602400/1017317609699776)  
           
@@ -574,7 +585,6 @@ for index, line in enumerate(lines):
 result = [''.join(line) for line in lines]  
 ```  
           
-          
 ```python  
 def deal(self, number):  
     cards_dealt = []  
@@ -588,10 +598,8 @@ def deal(self, number):
     return [self.cards.pop() for _ in range(number) if self.cards]  
 ```  
           
-          
 # 表达式  
 > [6. Expressions](https://docs.python.org/3/reference/expressions.html)  
-          
           
 ## 条件表达式 conditional expression  
 > [6.13. Conditional expressions](https://docs.python.org/3/reference/expressions.html#conditional-expressions)  
@@ -694,11 +702,6 @@ print(nested_list)
 ```  
 可通过 [可视化代码](https://pythontutor.com/render.html#mode=edit) 查看原理  
     
-    
-    
-    
-    
-    
 # 循环和分支结构  
 > [第05课：分支结构](https://github.com/jackfrued/Python-Core-50-Courses/blob/master/第05课：分支结构.md)  
 > [条件判断](https://www.liaoxuefeng.com/wiki/1016959663602400/1017099478626848)  
@@ -731,7 +734,6 @@ sub_list = my_list[1:]
 for element in sub_list:  
     print(element)  
 ```  
-          
 ```python  
 my_list = [1, 2, 3, 4, 5]  
           
@@ -770,7 +772,6 @@ else:
 # 模式匹配 match case  
 > [17. Structural Pattern Matching](https://python-course.eu/python-tutorial/structural-pattern-matching.php)  
     
-    
 ```python  
 command = input("What are you doing next? ")  
 match command.split():  
@@ -789,21 +790,37 @@ match command.split():
 # 输入和输出  
     
 ## 输入 input  
-- 区别 eval(input()) 和 input()  
-    
-    
+区别 eval(input()) 和 input()  
+
+1. **`input()` 函数：**
+   - `input()` 用于接收用户的标准输入（键盘输入）。
+   - 它将用户输入的内容作为字符串返回。
+   - 不进行任何计算或表达式求值。
+   ```python
+   user_input = input("Enter something: ")
+   print(f"You entered: {user_input}")
+   ```
+
+2. **`eval(input())` 函数：**
+   - `eval()` 函数用于执行一个字符串表达式，并返回表达式的结果。
+   - `input()` 用于接收用户的标准输入，然后 `eval()` 将接收到的字符串作为 Python 表达式进行求值。
+   - 可能存在潜在的安全风险，因为 `eval()` 可以执行任意的 Python 代码，包括恶意代码。
+   - 在使用 `eval(input())` 时，需要确保用户输入的内容是一个合法的 Python 表达式，否则可能引发 `SyntaxError` 或其他异常。
+   - 使用 `eval()` 应该谨慎，特别是当用户可以提供输入时，以防止安全问题。一般来说，尽量避免使用 `eval()` 处理用户输入，除非确实了解并信任输入。
+   ```python
+   result = eval(input("Enter an expression: "))
+   print(f"Result: {result}")
+   ```
+
 ## 输出 print  
 > [22. Formatted Output](https://python-course.eu/python-tutorial/formatted-output.php)  
     
-    
-    
-    
+
 # Python Scopes and Namespaces  
 > [9.2. Python Scopes and Namespaces](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces)  
 > [Python零基础教程快速上手_全程干货+实用技巧小白必看](https://www.bilibili.com/video/BV1FT4y1R7sz?p=79&vd_source=a99dfd145a3e6aa8000930c149d4bf58)  
 > [27. Namespaces](https://python-course.eu/python-tutorial/namespaces.php)  
     
-          
 1. 作用域规则：  
    - 局部作用域（Local Scope）：在函数内部定义的变量具有局部作用域，只能在函数内部访问。  
    - 嵌套作用域（Enclosing Scope）：当函数嵌套在另一个函数内部时，内部函数可以访问外部函数的变量。外部函数的作用域称为嵌套作用域。  
@@ -899,6 +916,8 @@ By default, arguments may be passed to a Python function either by position or e
           
 ### 位置参数 positional argument  
 默认参数为位置参数，调用函数时直接传递参数值  
+Parameters following the / may be positional-or-keyword or keyword-only.  
+
 ```python  
 # 标准参数可以传递参数值或 arg=value 的形式  
 def standard_arg(arg):  
@@ -913,9 +932,6 @@ def kwd_only_arg(*, arg):
 def combined_example(pos_only, /, standard, *, kwd_only):  
     print(pos_only, standard, kwd_only)  
 ```  
-          
-Parameters following the / may be positional-or-keyword or keyword-only.  
-          
           
 ### 关键字参数 keyword argument  
 函数调用时传递参数为 name=value 形式  
@@ -993,8 +1009,6 @@ evens, odds = get_numbers()
 print(evens)  # 输出: [2, 4]  
 print(odds)   # 输出: [1, 3, 5]  
 ```  
-    
-    
     
 ## 类型提示 type hint  
 > [typing — Support for type hints](https://docs.python.org/3/library/typing.html)  
@@ -1121,26 +1135,6 @@ output:
 当你多次调用target_function()时，"装饰器函数内的代码执行"只会执行一次。这是因为装饰器在应用时，会在定义被装饰的函数时执行，而不是在每次调用被装饰的函数时执行。  
   
 装饰器的作用是将被装饰的函数替换为新的函数，以添加额外的功能或修改行为。一旦装饰器被应用，被装饰的函数就变成了新的函数，而装饰器函数内的代码只会在装饰器应用时执行一次。  
-  
-******************************  
-  
-装饰器函数应定义在类的外部  
-```python  
-# 定义在类外部  
-def decorator(func):  
-    def wrapper(*args, **kwargs):  
-        print("装饰器函数内的代码执行")  
-        return func(*args, **kwargs)  
-    return wrapper  
-  
-class Example:  
-    @decorator  
-    def target_function(self):  
-        print("目标函数内的代码执行")  
-  
-example = Example()  
-example.target_function()  
-```  
   
   
 ## 内置函数  
