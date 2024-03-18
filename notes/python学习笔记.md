@@ -50,6 +50,7 @@ pip config set global.index-url https://pypi.doubanio.com/simple
 |设置|Ctrl+Alt+S||  
 |执行选择的行|Shift+E|自定义|  
 |显示运行窗口|Alt+4||  
+|运行当前文件|Shift+F10||  
 |运行选择的行|Alt+E|自定义|  
 |代码格式化|Ctrl+Alt+L||  
 |文件格式化|Ctrl+Alt+Shift+L||  

@@ -5,6 +5,7 @@
 # File: heart.py
 # Description: 网上找到代码，好多文章中都是一样的代码，不知道最初来源
 #              在源代码基础上修改了颜色部分，每 5秒随机切换颜色；增加文字显示
+# pyinstaller -F -w -i .\heart.ico -p .\venv\ .\heart.py
 
 import random
 from math import sin, cos, pi, log
@@ -28,7 +29,7 @@ HEART_COLORS = {
 }
 
 HEART_COLOR = random.choice(list(HEART_COLORS.values()))
-TEXT = "O(∩_∩)O 😄 新年快乐 😄 O(∩_∩)O"
+TEXT = "O(∩_∩)O 😄 2024新年快乐 😄 O(∩_∩)O"
 
 
 def heart_function(t, shrink_ratio: float = IMAGE_ENLARGE):

@@ -158,7 +158,7 @@ submit(): dispatch a function to be executed and return a Future object.
           The submit() method takes a function and executes it asynchronously.
 
 submit 方法用于提交单个任务，并返回一个 concurrent.futures.Future 对象，该对象代表任务的未来结果。
-你可以通过 Future 对象来获取任务的结果或检查任务是否完成。
+可以通过 Future 对象来获取任务的结果或检查任务是否完成。
 submit 适用于提交单个任务，返回一个 Future 对象。
 submit 更适用于需要独立管理每个任务执行过程和结果的场景。
 
